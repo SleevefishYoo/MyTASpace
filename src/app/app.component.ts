@@ -22,6 +22,20 @@ export class AppComponent {
     }
   ];
 
+  public sidemenuBottom = [
+    {
+      title: 'Settings',
+      url: '/settings'
+      
+    },
+    {
+      title: 'Logout',
+      url: '/welcome-slide'
+      
+
+    }
+  ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
