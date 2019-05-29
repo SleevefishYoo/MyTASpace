@@ -25,14 +25,13 @@ export class AppComponent {
   public sidemenuBottom = [
     {
       title: 'Settings',
-      url: '/settings'
-      
+      url: '/settings',
+      icon: 'settings'
     },
     {
       title: 'Logout',
-      url: '/welcome-slide'
-      
-
+      url: '/welcome-slide',
+      icon: 'log-out'
     }
   ];
 
