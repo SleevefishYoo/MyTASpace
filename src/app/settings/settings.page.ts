@@ -1,4 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../theme.service';
+import { Storage } from '@ionic/storage';
+
+
+const themes = {
+
+  default: {
+    primary: '#3880ff',
+    secondary: '#0cd1e8',
+    tertiary: '#7044ff',
+    dark: '#222428',
+    medium: '#989aa2',
+    light: '#f4f5f8'
+  },
+
+  dark: {
+    primary: '#8CBA80',
+    secondary: '#FCFF6C',
+    tertiary: '#FE5F55',
+    medium: '#BCC2C7',
+    dark: '#F7F7FF',
+    light: '#495867'
+  }
+};
 
 @Component({
   selector: 'app-settings',
@@ -6,11 +30,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-
-  constructor() { }
-
+  public isDarkMode: boolean = false;
+  constructor(private theme: ThemeService, private storage: Storage) {
+    storage.get('theme').then(isDark => {
+      this.isDarkMode = isDark;
+      this.darkModeToggle();
+    });
+   }
+  darkModeToggle(){
+    this.changeTheme(this.isDarkMode ? 'dark' : 'default');
+    this.storage.set('theme', this.isDarkMode);
+  }
+  changeTheme(name: string) {
+    this.theme.setTheme(themes[name]);
+  }
   ngOnInit() {
-    
+
   }
 
 }
