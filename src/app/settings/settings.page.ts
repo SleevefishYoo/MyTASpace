@@ -6,21 +6,21 @@ import { Storage } from '@ionic/storage';
 const themes = {
 
   default: {
-    primary: '#3880ff',
-    secondary: '#0cd1e8',
-    tertiary: '#7044ff',
+    primary: '#330572',
+    secondary: '#330572',
+    tertiary: '#f4f5f8',
     dark: '#222428',
     medium: '#989aa2',
     light: '#f4f5f8'
   },
 
   dark: {
-    primary: '#8CBA80',
-    secondary: '#FCFF6C',
-    tertiary: '#FE5F55',
+    primary: '#FF9900',
+    secondary: '#212121',
+    tertiary: '#FF9900',
     medium: '#BCC2C7',
     dark: '#F7F7FF',
-    light: '#495867'
+    light: '#212121'
   }
 };
 
