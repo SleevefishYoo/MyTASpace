@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   {
-    path: 'list',
+    path: 'list/:courseID',
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },

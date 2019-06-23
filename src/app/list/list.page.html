@@ -1,27 +1,27 @@
-<ion-header>
-  <ion-toolbar color="light">
-    <ion-buttons slot="start">
-      <ion-menu-button color="dark"></ion-menu-button>
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
     </ion-buttons>
-    <ion-title color="primary">
-      List
-    </ion-title>
+    <ion-title color="tertiary">ID: {{courseID}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
+    <ion-item *ngFor="let item of gradeItemList">
+      <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
+      {{item.Name}}
+      <!-- <div class="item-note" slot="end">
         {{item.note}}
-      </div>
+      </div> -->
     </ion-item>
   </ion-list>
+  
   <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title }}</b>
+  </div> 
   -->
+
 </ion-content>

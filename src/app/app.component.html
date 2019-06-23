@@ -8,15 +8,26 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" color="primary" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-icon slot="start" color="primary" [name]="p.icon"></ion-icon>
+            <ion-label>
+              {{p.title}}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+      <ion-item-divider color="light" >Courses</ion-item-divider>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of classList">
+          <ion-item [routerDirection]="'root'" [routerLink]="'/list/'+p.courseID">
+<!--            <ion-icon slot="start" color="primary" [name]="p.icon"></ion-icon>-->
+            <ion-label>
+              {{p.Name}}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
       </ion-content>
       <ion-footer class="bar-stable">
 

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ThemeService } from './theme.service';
 import { Storage } from '@ionic/storage';
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { OrganizationService } from './organization.service';
 
 const themes = {
 
@@ -36,20 +36,20 @@ const themes = {
 
 
 export class AppComponent {
-  public isDarkMode: boolean = false;
 
   public appPages = [
     {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
     }
+    // {
+    //   title: 'List',
+    //   url: '/list',
+    //   icon: 'list'
+    // }
   ];
+  classList =[{Name: '', courseID:'' }];
 
   public sidemenuBottom = [
     {
@@ -66,11 +66,18 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
+    private orgService: OrganizationService,
     private splashScreen: SplashScreen,
+    private menuCtrl: MenuController,
     private statusBar: StatusBar,
-    private theme: ThemeService, 
+    private theme: ThemeService,
     private storage: Storage) {
-    storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']);});
+    storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
+    this.orgService.updateSideMenu(this.orgService.sample_response1);
+    this.classList = this.orgService.sideMenuItems;
+    this.orgService.sideMenuSubject.asObservable().subscribe(() => {
+      this.classList = this.orgService.sideMenuItems;
+    });
     this.initializeApp();
     }
   initializeApp() {

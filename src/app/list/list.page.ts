@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { containerRefreshEnd } from '@angular/core/src/render3';
+import { ActivatedRoute } from '@angular/router';
+import { OrganizationService } from '../organization.service';
 
 @Component({
   selector: 'app-list',
@@ -6,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
+  gradeItemList = [{Name: '', gradeItemID: '' }];
+  courseID = null;
   private icons = [
     'flask',
     'wifi',
@@ -19,15 +23,16 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private orgService: OrganizationService
+    ) {
+    this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('courseID'));
+    this.orgService.updateGradeItems(this.courseID);
+    this.gradeItemList = this.orgService.gradeItemsMenuItems;
+    this.orgService.gradeItemsMenuSubject.asObservable().subscribe(() => {
+      this.gradeItemList = this.orgService.gradeItemsMenuItems;
+    });
   }
 
   ngOnInit() {
