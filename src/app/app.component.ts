@@ -50,7 +50,7 @@ export class AppComponent {
     // }
   ];
   classList =[{Name: '', courseID:'' }];
-
+  userFirstName = '';
   public sidemenuBottom = [
     {
       title: 'Settings',
@@ -73,6 +73,8 @@ export class AppComponent {
     private theme: ThemeService,
     private storage: Storage) {
     storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
+    this.orgService.updatePages(this.orgService.userINFO);
+    this.userFirstName = this.orgService.userFirstName;
     this.orgService.updateSideMenu(this.orgService.sample_response1);
     this.classList = this.orgService.sideMenuItems;
     this.orgService.sideMenuSubject.asObservable().subscribe(() => {

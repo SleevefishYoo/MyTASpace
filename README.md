@@ -1,4 +1,4 @@
-# LaurierCP317MyLorisSpace<br/>
-Laurier CP317 Spring 2019 MyLorisSpace<br/>
-This is where LORIS and MyLearningSpace come together.<br/>
+# LaurierCP317MyTASpace<br/>
+Laurier CP317 Spring 2019 MyTASpace<br/>
+MyLearningSpace marking made easy.<br/>
 More info to be added.
