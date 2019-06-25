@@ -19,8 +19,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-list>
-    <ion-item *ngFor="let item of gradingUsers">
+    <ion-item *ngFor="let item of gradingUsers" (click)="gradeChangePrompt(item.WLUID)">
       <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
       {{item.Name}}
       <div class="item-note" slot="end">

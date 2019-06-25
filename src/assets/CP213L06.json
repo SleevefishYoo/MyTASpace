@@ -1,0 +1,2383 @@
+{
+    "Objects": [
+        {
+            "User": {
+                "Identifier": "133935",
+                "DisplayName": "Abdullahi Abdi",
+                "EmailAddress": "abdi1120@mylaurier.ca",
+                "OrgDefinedId": "176751120",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "hlFwhm0aqo"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131207",
+                "DisplayName": "Adriana Abella Acosta",
+                "EmailAddress": "abel6000@mylaurier.ca",
+                "OrgDefinedId": "170346000",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "bPAHa0Gj5p"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133267",
+                "DisplayName": "Ansar Ali",
+                "EmailAddress": "alix2950@mylaurier.ca",
+                "OrgDefinedId": "170402950",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "5G0C1UJjQS"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "114848",
+                "DisplayName": "Simon Arcila Arroyave",
+                "EmailAddress": "arci4570@mylaurier.ca",
+                "OrgDefinedId": "130804570",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "oIphfqi2Qe"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129937",
+                "DisplayName": "Levi Aviv",
+                "EmailAddress": "aviv8230@mylaurier.ca",
+                "OrgDefinedId": "170468230",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "Ace4wHreGN"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133595",
+                "DisplayName": "Sujean Balahumar",
+                "EmailAddress": "bala8410@mylaurier.ca",
+                "OrgDefinedId": "170818410",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "8cdnmdfVbP"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "118258",
+                "DisplayName": "Mansirat Bhatia",
+                "EmailAddress": "bhat4320@mylaurier.ca",
+                "OrgDefinedId": "160844320",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "Tn6Hg5reyK"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131054",
+                "DisplayName": "Quinn Brimley",
+                "EmailAddress": "brim1000@mylaurier.ca",
+                "OrgDefinedId": "170781000",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "tpqEbcBRTG"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132650",
+                "DisplayName": "Megan Bryson",
+                "EmailAddress": "brys2050@mylaurier.ca",
+                "OrgDefinedId": "170442050",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "xSUGQPDGnx"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120622",
+                "DisplayName": "Akhil Chaudhary",
+                "EmailAddress": "chau2550@mylaurier.ca",
+                "OrgDefinedId": "160602550",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "Gb5G1YvTTo"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "128588",
+                "DisplayName": "Ilsa Chaytor",
+                "EmailAddress": "chay2150@mylaurier.ca",
+                "OrgDefinedId": "170262150",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "Cke5Qzy4rJ"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129009",
+                "DisplayName": "Lianbo Chen",
+                "EmailAddress": "chen9046@mylaurier.ca",
+                "OrgDefinedId": "160690460",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "mB8Jyw0ovS"
+            },
+            "GradeValue": {
+                "PointsNumerator": 1.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 4.545454545,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "D-",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "97282",
+                "DisplayName": "Rebecca Cho",
+                "EmailAddress": "cho.becca@hotmail.com",
+                "OrgDefinedId": "139003385",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "gmjP9SJUGO"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132359",
+                "DisplayName": "Connor Christian",
+                "EmailAddress": "chri6900@mylaurier.ca",
+                "OrgDefinedId": "170746900",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "JKo1bvpe7C"
+            },
+            "GradeValue": {
+                "PointsNumerator": 1.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 4.545454545,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "D-",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "125820",
+                "DisplayName": "Shawn Davis",
+                "EmailAddress": "davi7230@mylaurier.ca",
+                "OrgDefinedId": "130277230",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "W4MRzUjJtD"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129808",
+                "DisplayName": "Ogooluwakiishi Debayo-sanusi",
+                "EmailAddress": "deba4100@mylaurier.ca",
+                "OrgDefinedId": "170554100",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "0Fvmtrwdya"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "127093",
+                "DisplayName": "Walid Delileche",
+                "EmailAddress": "deli6600@mylaurier.ca",
+                "OrgDefinedId": "173016600",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "14mfUBW4LI"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131090",
+                "DisplayName": "Yashar Djamshidi-Sarabi",
+                "EmailAddress": "djam4030@mylaurier.ca",
+                "OrgDefinedId": "170934030",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "0S2ayJbwaI"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "104401",
+                "DisplayName": "Bryce Earner",
+                "EmailAddress": "bryceearner@gmail.com",
+                "OrgDefinedId": "150817480",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "XWr2TF8kLc"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129954",
+                "DisplayName": "Talal Elagha",
+                "EmailAddress": "elag9610@mylaurier.ca",
+                "OrgDefinedId": "170679610",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "USsf3Z8Wdv"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "117720",
+                "DisplayName": "Alexander Francis",
+                "EmailAddress": "fran0950@mylaurier.ca",
+                "OrgDefinedId": "160640950",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "yJHuxJO0Ue"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "126098",
+                "DisplayName": "Bryan Gadd",
+                "EmailAddress": "gadd1160@mylaurier.ca",
+                "OrgDefinedId": "170451160",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/FWcegEzfZY/image/MzU4NjcwOTEyNjA5OA==",
+                "ProfileIdentifier": "FWcegEzfZY"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132742",
+                "DisplayName": "Bartosz Grabinski",
+                "EmailAddress": "grab7840@mylaurier.ca",
+                "OrgDefinedId": "170817840",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "MHMj7MKPbi"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129637",
+                "DisplayName": "Bryce Guglietti",
+                "EmailAddress": "gugl3580@mylaurier.ca",
+                "OrgDefinedId": "170563580",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "CbcR0b6mX4"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131450",
+                "DisplayName": "Pauline Gwozdz",
+                "EmailAddress": "gwoz3760@mylaurier.ca",
+                "OrgDefinedId": "160393760",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "w8U0kzl3BE"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "118712",
+                "DisplayName": "Cole Halling",
+                "EmailAddress": "hall5780@mylaurier.ca",
+                "OrgDefinedId": "160605780",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "33cVnC4ese"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131376",
+                "DisplayName": "Yu Jian Han",
+                "EmailAddress": "hanx1330@mylaurier.ca",
+                "OrgDefinedId": "170881330",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "R3RrnyCh7y"
+            },
+            "GradeValue": {
+                "PointsNumerator": 1.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 4.545454545,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "D-",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131126",
+                "DisplayName": "Jianchu Huang",
+                "EmailAddress": "huan9840@mylaurier.ca",
+                "OrgDefinedId": "170999840",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/0QiMP9c1rQ/image/MzEzODc0NzEzMTEyNg==",
+                "ProfileIdentifier": "0QiMP9c1rQ"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131503",
+                "DisplayName": "Arhan Ikram",
+                "EmailAddress": "ikra9300@mylaurier.ca",
+                "OrgDefinedId": "170399300",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "SdxxgTSDiz"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131194",
+                "DisplayName": "Hayden Jeanson",
+                "EmailAddress": "jean2540@mylaurier.ca",
+                "OrgDefinedId": "170482540",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "HRYgEhE4Gk"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131041",
+                "DisplayName": "Sathusan Kandasamy",
+                "EmailAddress": "kand8870@mylaurier.ca",
+                "OrgDefinedId": "170408870",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "rrztXp1xBD"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "126310",
+                "DisplayName": "Christof Karlin",
+                "EmailAddress": "karl0910@mylaurier.ca",
+                "OrgDefinedId": "161920910",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "St4ftyucE5"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132682",
+                "DisplayName": "Nicole Laslavic",
+                "EmailAddress": "lasl7800@mylaurier.ca",
+                "OrgDefinedId": "170527800",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "F42ZdkR9Nn"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "119070",
+                "DisplayName": "Junyi Liu",
+                "EmailAddress": "liux9450@mylaurier.ca",
+                "OrgDefinedId": "160439450",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "7Lo4obgnTr"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "128214",
+                "DisplayName": "Jing Xuan Liu",
+                "EmailAddress": "liux8550@mylaurier.ca",
+                "OrgDefinedId": "173098550",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/khnb4w6Sok/image/MzU2NjE0MDEyODIxNA==",
+                "ProfileIdentifier": "khnb4w6Sok"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129857",
+                "DisplayName": "Garret Lowe",
+                "EmailAddress": "lowe7070@mylaurier.ca",
+                "OrgDefinedId": "160567070",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "NKnyXKS0R6"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120704",
+                "DisplayName": "Nicolas Lozano",
+                "EmailAddress": "loza1040@mylaurier.ca",
+                "OrgDefinedId": "150701040",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "NzFHD5lINu"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120389",
+                "DisplayName": "Edmund Lui",
+                "EmailAddress": "luix5540@mylaurier.ca",
+                "OrgDefinedId": "160635540",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "RrbqTml9qr"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129401",
+                "DisplayName": "Hongyi Luo",
+                "EmailAddress": "luox5910@mylaurier.ca",
+                "OrgDefinedId": "173145910",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/cGysfh0nLO/image/MzYxMzI3NTEyOTQwMQ==",
+                "ProfileIdentifier": "cGysfh0nLO"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "115622",
+                "DisplayName": "Chiedza Magumbe",
+                "EmailAddress": "magu6100@mylaurier.ca",
+                "OrgDefinedId": "160446100",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "7xqtujGGBV"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "134005",
+                "DisplayName": "Mohsin Malik",
+                "EmailAddress": "mali7370@mylaurier.ca",
+                "OrgDefinedId": "170987370",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "O2LjVvnCFn"
+            },
+            "GradeValue": {
+                "PointsNumerator": 1.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 4.545454545,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "D-",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133107",
+                "DisplayName": "Jakob Marasovic",
+                "EmailAddress": "mara4290@mylaurier.ca",
+                "OrgDefinedId": "170944290",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "dP5JfY4sRp"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "95016",
+                "DisplayName": "Anastassia Martynovitch",
+                "EmailAddress": "anastasia.martynovitch@gmail.com",
+                "OrgDefinedId": "140644410",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/w7sjAh61M0/image/MTg3MjU0MDk1MDE2",
+                "ProfileIdentifier": "w7sjAh61M0"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "119378",
+                "DisplayName": "Bowen Meng",
+                "EmailAddress": "meng6060@mylaurier.ca",
+                "OrgDefinedId": "160136060",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/J8khOH46G4/image/NDE4MTEwNjExOTM3OA==",
+                "ProfileIdentifier": "J8khOH46G4"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133973",
+                "DisplayName": "Ilija Milisav",
+                "EmailAddress": "mili2970@mylaurier.ca",
+                "OrgDefinedId": "150342970",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "FcFxNr3Ibd"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "139882",
+                "DisplayName": "Mahad Mohamed",
+                "EmailAddress": "moha6070@mylaurier.ca",
+                "OrgDefinedId": "181486070",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "GAvWQJdMCE"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131817",
+                "DisplayName": "Perves Mohammed",
+                "EmailAddress": "moha3440@mylaurier.ca",
+                "OrgDefinedId": "170143440",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "7MPBwZ63dP"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "113077",
+                "DisplayName": "Huong Nguyen",
+                "EmailAddress": "nguy4717@mylaurier.ca",
+                "OrgDefinedId": "150247170",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "qyFl16fK31"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132319",
+                "DisplayName": "Matthew Nitsopoulos",
+                "EmailAddress": "nits3880@mylaurier.ca",
+                "OrgDefinedId": "170673880",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "qaeEVDqHkw"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "128586",
+                "DisplayName": "Adetomiwa Odetunde",
+                "EmailAddress": "odet3570@mylaurier.ca",
+                "OrgDefinedId": "170193570",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "oVyGcvNDam"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "139748",
+                "DisplayName": "Michael Okenye",
+                "EmailAddress": "oken8340@mylaurier.ca",
+                "OrgDefinedId": "180108340",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "PhOthtfVyf"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "97455",
+                "DisplayName": "Shivangi Patel",
+                "EmailAddress": "pate6260@mylaurier.ca",
+                "OrgDefinedId": "140666260",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "LTe80FVFTt"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120032",
+                "DisplayName": "Brijeshkumar Patel",
+                "EmailAddress": "pate2068@mylaurier.ca",
+                "OrgDefinedId": "160420680",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "ySbj8wSL4U"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "130834",
+                "DisplayName": "Nathan Pinto",
+                "EmailAddress": "pint2610@mylaurier.ca",
+                "OrgDefinedId": "170782610",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "P7D8ehk6km"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131034",
+                "DisplayName": "Rana Qaderi",
+                "EmailAddress": "qade7600@mylaurier.ca",
+                "OrgDefinedId": "170317600",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "8jSQJMrcet"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "95310",
+                "DisplayName": "Jacob Ramsaywak",
+                "EmailAddress": "rams8940@mylaurier.ca",
+                "OrgDefinedId": "140798940",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "wKniTm5ORC"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129834",
+                "DisplayName": "Shane Riley",
+                "EmailAddress": "rile6320@mylaurier.ca",
+                "OrgDefinedId": "170696320",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "HNpDXu38CA"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132217",
+                "DisplayName": "David Riolo",
+                "EmailAddress": "riol8380@mylaurier.ca",
+                "OrgDefinedId": "170718380",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "LkjA4awQLM"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "99315",
+                "DisplayName": "Simon Schmitke",
+                "EmailAddress": "simo.schm@gmail.com",
+                "OrgDefinedId": "140808460",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "8IlPIT8n75"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "150060",
+                "DisplayName": "Afaq Shad",
+                "EmailAddress": "shad0350@mylaurier.ca",
+                "OrgDefinedId": "181780350",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "j4Hknhthv7"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129782",
+                "DisplayName": "Jacob Shattuck",
+                "EmailAddress": "shat4820@mylaurier.ca",
+                "OrgDefinedId": "170494820",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "62HIc8pJzV"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "117562",
+                "DisplayName": "Noah Shechtman",
+                "EmailAddress": "shec8010@mylaurier.ca",
+                "OrgDefinedId": "160228010",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "n5OIp46kBv"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "149982",
+                "DisplayName": "Jevinjyot Sidhu",
+                "EmailAddress": "sidh6830@mylaurier.ca",
+                "OrgDefinedId": "170516830",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "mjNAoPhx8y"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120687",
+                "DisplayName": "Esheaka Sinera",
+                "EmailAddress": "sine0240@mylaurier.ca",
+                "OrgDefinedId": "160930240",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "huKBnpJz6a"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "139911",
+                "DisplayName": "Ishmeet Singh",
+                "EmailAddress": "sing0078@mylaurier.ca",
+                "OrgDefinedId": "186800780",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "YOsMEsCJdW"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "119741",
+                "DisplayName": "Joshua Spicker",
+                "EmailAddress": "spic4580@mylaurier.ca",
+                "OrgDefinedId": "160714580",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "rfcxXS34kB"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "132774",
+                "DisplayName": "Adam Stecklov",
+                "EmailAddress": "stec9750@mylaurier.ca",
+                "OrgDefinedId": "170659750",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "cwdngSzzLI"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133649",
+                "DisplayName": "Natnael Surafel",
+                "EmailAddress": "sura1990@mylaurier.ca",
+                "OrgDefinedId": "160941990",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "f64b2EObHd"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "129077",
+                "DisplayName": "Dryden Swai",
+                "EmailAddress": "swai5480@mylaurier.ca",
+                "OrgDefinedId": "173005480",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "W0G6L2eXLG"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "124680",
+                "DisplayName": "Colin Sweitzer",
+                "EmailAddress": "swei3490@mylaurier.ca",
+                "OrgDefinedId": "171403490",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "QGnMi3Fgy8"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "131782",
+                "DisplayName": "James Tan-Ye",
+                "EmailAddress": "tany5590@mylaurier.ca",
+                "OrgDefinedId": "173145590",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "t5QMRrmN7G"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "114787",
+                "DisplayName": "Lucas Thornley",
+                "EmailAddress": "thor3570@mylaurier.ca",
+                "OrgDefinedId": "161723570",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "XX5GweSJl9"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133319",
+                "DisplayName": "Amandeep Toora",
+                "EmailAddress": "toor5970@mylaurier.ca",
+                "OrgDefinedId": "170115970",
+                "ProfileBadgeUrl": "/d2l/api/lp/1.5/profile/q8gjWPqsDD/image/MzMyNTU0MjEzMzMxOQ==",
+                "ProfileIdentifier": "q8gjWPqsDD"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "130206",
+                "DisplayName": "Steven Tran",
+                "EmailAddress": "tran4740@mylaurier.ca",
+                "OrgDefinedId": "170574740",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "Q4jmJcpHs3"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "133207",
+                "DisplayName": "Jacob Vercouteren",
+                "EmailAddress": "verc7550@mylaurier.ca",
+                "OrgDefinedId": "170917550",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "OsBHrj3Mtw"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "95706",
+                "DisplayName": "Matthew Voight",
+                "EmailAddress": "voig5210@mylaurier.ca",
+                "OrgDefinedId": "140765210",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "DVQkewMxHJ"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "98135",
+                "DisplayName": "Xiaojian Wang",
+                "EmailAddress": "wang9640@mylaurier.ca",
+                "OrgDefinedId": "140979640",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "mz0c7FXIMa"
+            },
+            "GradeValue": {
+                "PointsNumerator": 0.0,
+                "PointsDenominator": 0.0,
+                "WeightedNumerator": 0.0,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "F",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "114752",
+                "DisplayName": "Hao Wu",
+                "EmailAddress": "wuxx2630@mylaurier.ca",
+                "OrgDefinedId": "166802630",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "U60BCWDZLA"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "110019",
+                "DisplayName": "Abdirahman Yassin",
+                "EmailAddress": "yass0030@mylaurier.ca",
+                "OrgDefinedId": "154160030",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "CUKqcAFhxp"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "120259",
+                "DisplayName": "Yuxuan Ye",
+                "EmailAddress": "alexgtr@live.com",
+                "OrgDefinedId": "150863280",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "JJwFVkrYfA"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "99728",
+                "DisplayName": "Xiao Yue Zhang",
+                "EmailAddress": "zhan9320@mylaurier.ca",
+                "OrgDefinedId": "205679320",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "POSH5CwOWt"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        },
+        {
+            "User": {
+                "Identifier": "139859",
+                "DisplayName": "Shihui Zhou",
+                "EmailAddress": "zhou3200@mylaurier.ca",
+                "OrgDefinedId": "181473200",
+                "ProfileBadgeUrl": null,
+                "ProfileIdentifier": "u2i2TSc0L7"
+            },
+            "GradeValue": {
+                "PointsNumerator": 2.000000000,
+                "PointsDenominator": 2.000000000,
+                "WeightedNumerator": 9.090909091,
+                "WeightedDenominator": 9.090909091,
+                "GradeObjectIdentifier": "312413",
+                "GradeObjectName": "L06",
+                "GradeObjectType": 1,
+                "GradeObjectTypeName": "Numeric",
+                "DisplayedGrade": "A+",
+                "Comments": {
+                    "Text": "",
+                    "Html": ""
+                },
+                "PrivateComments": {
+                    "Text": "",
+                    "Html": ""
+                }
+            }
+        }
+    ],
+    "Next": null
+}

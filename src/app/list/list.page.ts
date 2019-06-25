@@ -9,7 +9,7 @@ import { OrganizationService } from '../organization.service';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  gradeItemList = [{Name: '', gradeItemID: '' }];
+  gradeItemList: Array<{Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean}> = [];
   courseID = null;
   private icons = [
     'flask',
@@ -33,6 +33,13 @@ export class ListPage implements OnInit {
     this.orgService.gradeItemsMenuSubject.asObservable().subscribe(() => {
       this.gradeItemList = this.orgService.gradeItemsMenuItems;
     });
+  }
+
+  async doRefresh(event) {
+    console.log('Begin async operation');
+    await this.orgService.updateGradeItems(this.courseID);
+    this.gradeItemList = this.orgService.gradeItemsMenuItems;
+    event.target.complete();
   }
 
   ngOnInit() {

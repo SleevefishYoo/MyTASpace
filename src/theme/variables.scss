@@ -116,3 +116,17 @@
     --ion-color-medium-tint: #7d7c7d;
   }
 }
+
+.myNormalPrompt .alert-wrapper {
+  background-color: var(--ion-color-light);
+}
+
+.myAlertPrompt .alert-wrapper {
+  background-color: var(--ion-color-light);
+  text-emphasis-color: red;
+  // -webkit-text-fill-color: red;
+  text-decoration-color: var(--ion-color-tertiary)
+} 
+.myAlertPrompt .alert-sub-title {
+  color: red;
+}

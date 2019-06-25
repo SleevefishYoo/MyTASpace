@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
-  { path: 'welcome-slide', loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule' },  { path: 'grading', loadChildren: './grading/grading.module#GradingPageModule' }
+  { path: 'welcome-slide', loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule' },
+  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule' }
 
 ];
 

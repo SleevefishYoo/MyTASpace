@@ -5,6 +5,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { OrganizationService } from './organization.service';
+import { Subscription } from 'rxjs';
 
 const themes = {
 
@@ -36,20 +37,16 @@ const themes = {
 
 
 export class AppComponent {
+  customBackActionSubscription: Subscription;
 
   public appPages = [
     {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'Grading Page',
-      url: '/grading',
-      icon: 'list'
     }
   ];
-  classList =[{Name: '', courseID:'' }];
+  classList = [{Name: '', courseID: '' }];
   userFirstName = '';
   public sidemenuBottom = [
     {
@@ -73,7 +70,7 @@ export class AppComponent {
     private theme: ThemeService,
     private storage: Storage) {
     storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
-    this.orgService.updatePages(this.orgService.userINFO);
+    this.orgService.updateNameOnPages(this.orgService.userINFO);
     this.userFirstName = this.orgService.userFirstName;
     this.orgService.updateSideMenu(this.orgService.sample_response1);
     this.classList = this.orgService.sideMenuItems;
@@ -86,6 +83,10 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.platform.backButton.subscribe(() => {
+        // this does work
+      });
     });
+
   }
 }
