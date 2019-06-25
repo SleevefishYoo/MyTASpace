@@ -12,9 +12,9 @@
     <ion-item *ngFor="let item of gradeItemList">
       <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
       {{item.Name}}
-      <!-- <div class="item-note" slot="end">
-        {{item.note}}
-      </div> -->
+      <div class="item-note" slot="end">
+      {{item.gradeItemID}}
+      </div>
     </ion-item>
   </ion-list>
   

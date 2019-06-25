@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary">Grading</ion-title>
+  </ion-toolbar>
+  <ion-searchbar 
+    [(ngModel)]="searchTerm" 
+    (ionChange)="onSearchInput($event)" 
+    mode="ios" 
+    placeholder="Name/WLU ID/Network login"
+    debounce = 200
+    animated = true
+  ></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container" slot=end>
+    <ion-spinner color = "primary"></ion-spinner>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of gradingUsers">
+      <!-- <ion-icon [name]="item.icon" slot="start"></ion-icon> -->
+      {{item.Name}}
+      <div class="item-note" slot="end">
+      {{item.currGrade}}/{{item.gradeOutOf}}
+      </div>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

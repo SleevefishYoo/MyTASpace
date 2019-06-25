@@ -42,12 +42,12 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
+    },
+    {
+      title: 'Grading Page',
+      url: '/grading',
+      icon: 'list'
     }
-    // {
-    //   title: 'List',
-    //   url: '/list',
-    //   icon: 'list'
-    // }
   ];
   classList =[{Name: '', courseID:'' }];
   userFirstName = '';
