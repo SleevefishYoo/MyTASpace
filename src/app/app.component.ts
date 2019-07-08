@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { OrganizationService } from './organization.service';
 import { Subscription } from 'rxjs';
 
+
 const themes = {
 
   default: {
@@ -61,6 +62,7 @@ export class AppComponent {
     }
   ];
 
+  
   constructor(
     private platform: Platform,
     private orgService: OrganizationService,

@@ -1,10 +1,11 @@
-<ion-content padding>
+<!--<ion-content padding>-->
+  <ion-content fullscreen padding scroll-y="false">
 
   <ion-slides pager="true">
     <ion-slide *ngFor="let slide of slider">
-      <img [src]="slide.image"/>
-      <h2 [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
+      <img [src]="slide.image" class = "a"/>
+      <!-- <h2 [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p> -->
     </ion-slide>
   </ion-slides>
 
