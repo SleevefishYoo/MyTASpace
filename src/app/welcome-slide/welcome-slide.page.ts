@@ -12,16 +12,32 @@ export class WelcomeSlidePage implements OnInit {
      
   }
 
-  ionViewWillEnter() {
+  /* ionViewWillEnter() {
     this.menuController.enable(false);
   }
   
   ionViewDidLeave() {
     this.menuController.enable(true);
   }
-
+ */
   ngOnInit() {
     
   }
-  
+  slider = [
+    {
+      title:'Title',
+      description:'Description',
+      image:"assets/Screen Shot 2019-05-28 at 2.29.58 PM.png"
+    },
+    {
+      title:'Title',
+      description:'Description',
+      image:"assets/Screen Shot 2019-05-28 at 2.29.58 PM.png"
+    },
+    {
+      title:'Title',
+      description:'Description',
+      image:"assets/Screen Shot 2019-05-28 at 2.29.58 PM.png"
+    },
+  ];
 }
