@@ -1,0 +1,63 @@
+{
+  "_from": "valence",
+  "_id": "valence@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha1-2yZrNYCSmCOM9nGIl2FnOTaarZ8=",
+  "_location": "/valence",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "valence",
+    "name": "valence",
+    "escapedName": "valence",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/valence/-/valence-1.0.3.tgz",
+  "_shasum": "db266b35809298238cf6718897616739369aad9f",
+  "_spec": "valence",
+  "_where": "/Users/aaron/Documents/Courses/CP317/GteKraken_GitHub/LaurierCP317MyTASpace",
+  "author": {
+    "name": "Desire2Learn Inc."
+  },
+  "bugs": {
+    "url": "https://github.com/Desire2Learn-Valence/valence-sdk-javascript/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "JavaScript Valence SDK",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coveralls": "^2.10.0",
+    "istanbul": "^0.2.7",
+    "mocha": "^1.18.2",
+    "sinon": "~1.9.1"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "homepage": "http://docs.valence.desire2learn.com",
+  "keywords": [
+    "Desire2Learn",
+    "D2L",
+    "Valence"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/valence",
+  "name": "valence",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Desire2Learn-Valence/valence-sdk-javascript.git"
+  },
+  "scripts": {
+    "report-cov": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "test": "istanbul test ./node_modules/.bin/_mocha -- -R spec spec"
+  },
+  "version": "1.0.3"
+}

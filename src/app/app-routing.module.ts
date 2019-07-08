@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'welcome-slide', loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule' },
-  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule' }
+  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule' },  { path: 'test', loadChildren: './test/test.module#TestPageModule' }
+
 
 ];
 

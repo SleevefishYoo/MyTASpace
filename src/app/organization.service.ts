@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-// import D2L from 'valence/lib/valence.js';
 import { isNumeric } from 'rxjs/util/isNumeric';
 // import { merge } from 'lodash.merge';
 

@@ -81,7 +81,12 @@ export class AppComponent {
     }
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.styleBlackTranslucent();
+      if (cordova.platformId == 'android') {
+        // this.statusBar.styleBlackOpaque()
+      }
+      // this.statusBar.backgroundColorByHexString('#33000000');
+      // this.statusBar.overlaysWebView(false);
       this.splashScreen.hide();
       this.platform.backButton.subscribe(() => {
         // this does work
