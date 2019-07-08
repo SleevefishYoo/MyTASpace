@@ -1,0 +1,12 @@
+{
+    "Brightspace": {
+        "appID": "MRgyWUS6WXW8Xc9_SampSA",
+        "appKey": "Pxu_GbXXip3zIHg-Ejl1JA",
+        "Host": "wlutest.desire2learn.com"
+    },
+    "Session": {
+        "userID": "yyxu3XiSAn2Ep8ulXKJSWv",
+        "userKey": "wg7EwE7ba2xZYqA3BKJEK6",
+        "CallBackURLWithParams": "https://apitesttool.desire2learnvalence.com/?x_a=yyxu3XiSAn2Ep8ulXKJSWv&x_b=wg7EwE7ba2xZYqA3BKJEK6&x_c=dDG8kcrjCKyt_BVYUBpni00QHfPuwZZ6sKE0Bq5S7-Q"
+    }
+}
