@@ -1,0 +1,29 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary">Testing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button expand="block" (click)="GenerateAuthURL()">Generate Auth url</ion-button>
+
+  <ion-button expand="block" (click)="setIdKey()">SET ID GEY in Storage</ion-button>
+
+  <ion-button expand="block" (click)="CreateUserContext()">Create User Context</ion-button>
+
+  <ion-button expand="block" (click)="getIdKey()">Get UserID KEY from Storage</ion-button>
+  
+  <ion-button expand="block" (click)="GenerateWhoAMIURL()">Generate WHOAMI URL using userContext</ion-button>
+
+  <ion-button expand="block" (click)="whoAmI()">WHO AM I?</ion-button>
+
+  <ion-button expand="block" (click)="login()">Login</ion-button>
+
+
+  <ion-textarea [(ngModel)]="log"></ion-textarea>
+
+</ion-content>
