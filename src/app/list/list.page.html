@@ -25,6 +25,7 @@
       [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
       <ion-item
         *ngIf="(item.Name.indexOf('L') == 0 || item.Name.toLowerCase().includes(lab)) && item.gradeItemID != '000000'">
+        <ion-icon name="arrow-round-forward"></ion-icon>
         {{ item.Name}}
         <ion-note slot="end">
           {{item.gradeItemID}}
@@ -43,6 +44,7 @@
       [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
       <ion-item
         *ngIf="(item.Name.indexOf('A') == 0 || item.Name.toLowerCase().includes('assignment') )&& item.gradeItemID != '000000'">
+        <ion-icon name="arrow-round-forward"></ion-icon>
         {{ item.Name}}
         <ion-note slot="end">
           {{item.gradeItemID}}
@@ -62,6 +64,7 @@
       [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
       <ion-item
         *ngIf="item.Name.indexOf('A') != 0 && item.Name.indexOf('L') != 0 && !item.Name.toLowerCase().includes('assignment') && !item.Name.toLowerCase().includes('lab') && item.gradeItemID != '000000'">
+        <ion-icon name="arrow-round-forward"></ion-icon>
         {{ item.Name}}
         <ion-note slot="end">
           {{item.gradeItemID}}
