@@ -109,7 +109,7 @@ export class OrganizationService {
 
     // push Labs, assignments and other into their correposnding arrays.
     for (const item of this.gradeItems) {
-      if (item.Name.charAt(0) == 'L') {
+      if (item.Name.charAt(0) == 'L' || item.Name.toLowerCase().includes('lab')) {
         if (labCounter == 0) {
           this.labItems.push({
             Name: 'Lab',
@@ -132,7 +132,7 @@ export class OrganizationService {
           });
         }
         labCounter += 1;
-      } else if (item.Name.charAt(0) == 'A') {
+      } else if (item.Name.charAt(0) == 'A' || item.Name.toLowerCase().includes('assignment')) {
         if (assignmentCounter == 0) {
           this.assignmentItems.push({
             Name: 'Assignment',

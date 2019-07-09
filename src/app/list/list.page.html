@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -16,32 +16,33 @@
     <!-- lab -->
 
     <ion-item-group *ngFor="let item of gradeItemList">
-      <ion-item *ngIf="item.Name == 'Lab'">
-        <ion-item-divider>{{item.Name}}</ion-item-divider>
+      <ion-item *ngIf="item.Name == 'Lab' && item.gradeItemID == '000000'">
+        <ion-item-divider class="lab-divider">{{item.Name}}</ion-item-divider>
       </ion-item>
     </ion-item-group>
 
     <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
       [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
-      <ion-item *ngIf="item.Name.indexOf('L') == 0 && item.gradeItemID != '000000'">
+      <ion-item
+        *ngIf="(item.Name.indexOf('L') == 0 || item.Name.toLowerCase().includes(lab)) && item.gradeItemID != '000000'">
         {{ item.Name}}
         <ion-note slot="end">
           {{item.gradeItemID}}
         </ion-note>
       </ion-item>
     </ion-item-group>
-
 
     <!-- Assignment  -->
     <ion-item-group *ngFor="let item of gradeItemList">
-      <ion-item *ngIf="item.Name == 'Assignment'">
-        <ion-item-divider light>Assignment</ion-item-divider>
+      <ion-item *ngIf="item.Name == 'Assignment' && item.gradeItemID == '000000'">
+        <ion-item-divider class="assignment-divider">Assignment</ion-item-divider>
       </ion-item>
     </ion-item-group>
 
     <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
       [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
-      <ion-item *ngIf="item.Name.indexOf('A') == 0 && item.gradeItemID != '000000'">
+      <ion-item
+        *ngIf="(item.Name.indexOf('A') == 0 || item.Name.toLowerCase().includes('assignment') )&& item.gradeItemID != '000000'">
         {{ item.Name}}
         <ion-note slot="end">
           {{item.gradeItemID}}
@@ -49,23 +50,25 @@
       </ion-item>
     </ion-item-group>
 
-    
+
     <!-- Other -->
     <ion-item-group *ngFor="let item of gradeItemList">
-        <ion-item *ngIf="item.Name == 'Other'">
-          <ion-item-divider light>Other</ion-item-divider>
-        </ion-item>
-      </ion-item-group>
-      
-      <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
-        [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
-        <ion-item *ngIf="item.Name.indexOf('A') != 0 && item.Name.indexOf('L') != 0 && item.gradeItemID != '000000'">
-          {{ item.Name}}
-          <ion-note slot="end">
-            {{item.gradeItemID}}
-          </ion-note>
-        </ion-item>
-      </ion-item-group>
+      <ion-item *ngIf="item.Name == 'Other' && item.gradeItemID == '000000'">
+        <ion-item-divider class="others-divider">Other</ion-item-divider>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
+      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
+      <ion-item
+        *ngIf="item.Name.indexOf('A') != 0 && item.Name.indexOf('L') != 0 && !item.Name.toLowerCase().includes('assignment') && !item.Name.toLowerCase().includes('lab') && item.gradeItemID != '000000'">
+        {{ item.Name}}
+        <ion-note slot="end">
+          {{item.gradeItemID}}
+        </ion-note>
+      </ion-item>
+    </ion-item-group>
+
 
 
   </ion-list>
