@@ -138,4 +138,10 @@ export class GradingPage implements OnInit {
       return;
     });
   }
+
+  gradeFirst() {
+    if(this.searchTerm === "") {return;}
+    this.gradeChangePrompt(this.gradingUsers[0].WLUID);
+    this.searchTerm = '';
+  }
 }

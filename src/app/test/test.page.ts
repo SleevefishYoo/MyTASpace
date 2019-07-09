@@ -9,9 +9,8 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./test.page.scss'],
 })
 export class TestPage implements OnInit {
-  userID: any;
-  userKey: any;
   log = "Page Ready.";
+
   constructor(private brightspaceService: BrightspaceService,
               private http: HttpClient) {
 
@@ -21,13 +20,15 @@ export class TestPage implements OnInit {
   }
 
   getIdKey() {
-    prompt("Userid: "+ this.brightspaceService.getUserKey() + "\n UserKey: "+this.brightspaceService.getUserID());
+    prompt("Userid: " + this.brightspaceService.getUserKey() + "\n UserKey: " + this.brightspaceService.getUserID()+"\n Skew: "+this.brightspaceService.getSkew());
   }
 
   setIdKey() {
     this.brightspaceService.setUserID(PARAMS.Session.userID);
     this.brightspaceService.setUserKey(PARAMS.Session.userKey);
-    this.getIdKey()
+    this.brightspaceService.redirectedURL = PARAMS.Session.CallBackURLWithParams;
+    this.brightspaceService.setSessionSkew(this.brightspaceService.calcSkew());
+    this.getIdKey();
   }
 
   CreateUserContext() {
@@ -38,18 +39,19 @@ export class TestPage implements OnInit {
   GenerateAuthURL() {
     this.log = this.brightspaceService.generateAuthURL();
   }
+
   GenerateWhoAMIURL() {
-    this.log = this.brightspaceService.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami','get');
+    this.log = this.brightspaceService.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
     return this.log;
   }
 
-  login(){
+  login() {
     this.brightspaceService.login();
   }
 
   whoAmI() {
     console.log("Gettingg response from:" + this.GenerateWhoAMIURL());
-    this.http.get('https://'+this.GenerateWhoAMIURL()).subscribe((response) => {
+    this.http.get('https://' + this.GenerateWhoAMIURL()).subscribe((response) => {
       let res = {
         "Identifier": "",
         "FirstName": "",
@@ -60,7 +62,12 @@ export class TestPage implements OnInit {
       // @ts-ignore
       res = response;
       this.log = "Getting response...";
-      this.log = String(res);
+      this.log = JSON.stringify(res);
     });
+  }
+
+  calcSkew() {
+    prompt(this.brightspaceService.calcSkew());
+    this.log = this.brightspaceService.redirectedURL;
   }
 }
