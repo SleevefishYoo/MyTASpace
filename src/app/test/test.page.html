@@ -11,17 +11,19 @@
 
   <ion-button expand="block" (click)="GenerateAuthURL()">Generate Auth url</ion-button>
 
-  <ion-button expand="block" (click)="setIdKey()">SET ID GEY in Storage</ion-button>
+  <ion-button expand="block" (click)="setIdKey()">SET ID GEY Skew</ion-button>
+
+  <ion-button expand="block" (click)="getIdKey()">Get current userID/Key/Skew</ion-button>
 
   <ion-button expand="block" (click)="CreateUserContext()">Create User Context</ion-button>
-
-  <ion-button expand="block" (click)="getIdKey()">Get UserID KEY from Storage</ion-button>
   
   <ion-button expand="block" (click)="GenerateWhoAMIURL()">Generate WHOAMI URL using userContext</ion-button>
 
   <ion-button expand="block" (click)="whoAmI()">WHO AM I?</ion-button>
 
   <ion-button expand="block" (click)="login()">Login</ion-button>
+
+  <ion-button expand="block" (click)="calcSkew()">Calculate skew from redirectedURL</ion-button>
 
 
   <ion-textarea [(ngModel)]="log"></ion-textarea>
