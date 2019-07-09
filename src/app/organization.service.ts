@@ -103,35 +103,79 @@ export class OrganizationService {
     this.labItems = [];
     this.otherItems = [];
 
+    var labCounter = 0;
+    var assignmentCounter = 0;
+    var otherCounter = 0;
+
     // push Labs, assignments and other into their correposnding arrays.
     for (const item of this.gradeItems) {
-      if (item.Name.charAt(0) == 'L') {    
-        this.labItems.push({
-          Name: 'Lab',
-          gradeItemID:'000000',
-          allowExceed: false,
-          maxGrade: 0
-        });
-        this.labItems.push({
-          Name: item.Name,
-          gradeItemID: item.Id,
-          allowExceed: Boolean(item.CanExceedMaxPoints),
-          maxGrade: item.MaxPoints
-        });
+      if (item.Name.charAt(0) == 'L') {
+        if (labCounter == 0) {
+          this.labItems.push({
+            Name: 'Lab',
+            gradeItemID: '000000',
+            allowExceed: false,
+            maxGrade: 0
+          });
+          this.labItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        } else {
+          this.labItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        }
+        labCounter += 1;
       } else if (item.Name.charAt(0) == 'A') {
-        this.assignmentItems.push({
-          Name: item.Name,
-          gradeItemID: item.Id,
-          allowExceed: Boolean(item.CanExceedMaxPoints),
-          maxGrade: item.MaxPoints
-        });
+        if (assignmentCounter == 0) {
+          this.assignmentItems.push({
+            Name: 'Assignment',
+            gradeItemID: '000000',
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+          this.assignmentItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        } else {
+          this.assignmentItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        } assignmentCounter += 1;
       } else {
-        this.otherItems.push({
-          Name: item.Name,
-          gradeItemID: item.Id,
-          allowExceed: Boolean(item.CanExceedMaxPoints),
-          maxGrade: item.MaxPoints
-        });
+        if (otherCounter == 0) {
+          this.otherItems.push({
+            Name: 'Other',
+            gradeItemID: '000000',
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+          this.otherItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        } else {
+          this.otherItems.push({
+            Name: item.Name,
+            gradeItemID: item.Id,
+            allowExceed: Boolean(item.CanExceedMaxPoints),
+            maxGrade: item.MaxPoints
+          });
+        } otherCounter += 1;
       }
     }
 
