@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import D2L from 'valence/lib/valence.js';
+// import D2L from 'valence/lib/valence.js';
 import { isNumeric } from 'rxjs/util/isNumeric';
+// import { merge } from 'lodash.merge'; 
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,13 @@ export class OrganizationService {
   sideMenuItems: Array<{ Name: string; courseID: string }> = [];
   sideMenuSubject: Subject<string> = new Subject<string>();
 
-  gradeItemsMenuItems: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean}> = [];
+  gradeItemsMenuItems: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean }> = [];
   gradeItemsMenuSubject: Subject<string> = new Subject<string>();
+
+  assignmentItems: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean }> = [];
+  labItems: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean }> = [];
+  otherItems: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean }> = [];
+
 
   userFirstName = '';
 
@@ -52,7 +58,7 @@ export class OrganizationService {
 
   async updateGradingPage(courseID: string, gradeItemID: string) {
     this.gradingUsers = [];
-    const jsonResponse = this.requestGradingUsers(courseID, gradeItemID);
+    const jsonResponse = await this.requestGradingUsers(courseID, gradeItemID);
     const userGrades = JSON.parse(jsonResponse).Objects;
     for (const usergrade of userGrades) {
       this.gradingUsers.push({
@@ -68,6 +74,7 @@ export class OrganizationService {
     console.log('Grading page updated: ' + this.gradingUsers.length);
     this.gradingUsersFilteredSubject.next('List updated');
   }
+
   updateNameOnPages(jsonResponse: string) {
     this.userFirstName = JSON.parse(jsonResponse).FirstName;
   }
@@ -90,22 +97,89 @@ export class OrganizationService {
     const jsonResponse = (courseID === 304927) ? this.gradeItemsCP264 : this.gradeItemsCP213;
 
     this.gradeItems = JSON.parse(jsonResponse);
+
     this.gradeItemsMenuItems = [];
+    this.assignmentItems = [];
+    this.labItems = [];
+    this.otherItems = [];
+
+    // push Labs, assignments and other into their correposnding arrays.
     for (const item of this.gradeItems) {
-      this.gradeItemsMenuItems.push({
-        Name: item.Name,
-        gradeItemID: item.Id,
-        allowExceed: Boolean(item.CanExceedMaxPoints),
-        maxGrade: item.MaxPoints
-      });
+      if (item.Name.charAt(0) == 'L') {    
+        this.labItems.push({
+          Name: 'Lab',
+          gradeItemID:'000000',
+          allowExceed: false,
+          maxGrade: 0
+        });
+        this.labItems.push({
+          Name: item.Name,
+          gradeItemID: item.Id,
+          allowExceed: Boolean(item.CanExceedMaxPoints),
+          maxGrade: item.MaxPoints
+        });
+      } else if (item.Name.charAt(0) == 'A') {
+        this.assignmentItems.push({
+          Name: item.Name,
+          gradeItemID: item.Id,
+          allowExceed: Boolean(item.CanExceedMaxPoints),
+          maxGrade: item.MaxPoints
+        });
+      } else {
+        this.otherItems.push({
+          Name: item.Name,
+          gradeItemID: item.Id,
+          allowExceed: Boolean(item.CanExceedMaxPoints),
+          maxGrade: item.MaxPoints
+        });
+      }
     }
+
+    // sort each array here
+    this.labItems.sort(function (a, b) {
+      if (a.Name > b.Name) {
+        return 1;
+      }
+      if (a.Name < b.Name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.assignmentItems.sort(function (a, b) {
+      if (a.Name > b.Name) {
+        return 1;
+      }
+      if (a.Name < b.Name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.otherItems.sort(function (a, b) {
+      if (a.Name > b.Name) {
+        return 1;
+      }
+      if (a.Name < b.Name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    // merge all the arrays into gradeItemsMenueItems
+    Array.prototype.push.apply(this.gradeItemsMenuItems, this.labItems);
+    Array.prototype.push.apply(this.gradeItemsMenuItems, this.assignmentItems);
+    Array.prototype.push.apply(this.gradeItemsMenuItems, this.otherItems);
+
     this.gradeItemsMenuSubject.next('New Course has been selected!!');
   }
+
+
 
   filterItems(searchTerm: string) {
     console.log('filtering with term: ' + searchTerm);
     if (searchTerm === '') {
-    this.gradingUsersFiltered = this.gradingUsers;
+      this.gradingUsersFiltered = this.gradingUsers;
 
     } else {
       this.gradingUsersFiltered = this.gradingUsers.filter(item => {
@@ -119,9 +193,9 @@ export class OrganizationService {
     // TODO: Implement requesting server.
     if (courseID === '294099' && gradeItemID === '312413') {
       return this.CP213L06Grades;
-      } else if (courseID === '304927' && gradeItemID === '330231') {
-        return this.CP264L06Ggrades;
-      } else {
+    } else if (courseID === '304927' && gradeItemID === '330231') {
+      return this.CP264L06Ggrades;
+    } else {
       return `
     {
       "Objects": [
