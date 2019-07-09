@@ -14,6 +14,7 @@ export class ThemeService {
 
    setTheme(theme){
     const cssText = CSSTextGenerator(theme);
+    this.statusBar.styleBlackTranslucent();
     this.statusBar.backgroundColorByHexString(theme.secondary);
     this.setGlobalCSS(cssText);
    }
