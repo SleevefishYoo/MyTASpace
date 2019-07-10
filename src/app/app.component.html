@@ -20,8 +20,7 @@
       <ion-item-divider color="light" >Courses</ion-item-divider>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of classList">
-          <ion-item [routerDirection]="'root'" [routerLink]="'/list/'+p.courseID+'/'+p.Name">
-<!--            <ion-icon slot="start" color="primary" [name]="p.icon"></ion-icon>-->
+          <ion-item [routerDirection]="'root'" [routerLink]="'/list/'+p.courseID">
             <ion-label>
               {{p.Name}}
             </ion-label>

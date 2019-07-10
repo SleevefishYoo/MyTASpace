@@ -89,3 +89,17 @@
 .myAlertPrompt .alert-sub-title {
   color: red;
 }
+
+.warning-toast {
+  --background: var(--ion-color-danger);
+  --color: white;
+  
+}
+.normal-toast {
+  --background: var(--ion-color-primary);
+  --color: white;
+}
+.ion-button {
+  --background: var(--ion-color-primary);
+  --color: white;
+}
