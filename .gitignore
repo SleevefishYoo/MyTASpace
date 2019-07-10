@@ -32,5 +32,8 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+cred.json
+cred_devcop.json
+cred_WLUTEST.json
 
 *.code-workspace

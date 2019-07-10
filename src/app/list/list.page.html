@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title color="tertiary">{{courseName}} </ion-title>
   </ion-toolbar>
+  <div *ngIf="loading" class="spinner-container" slot=end>
+      <ion-spinner color = "primary"></ion-spinner>
+  </div>
 </ion-header>
 
 <ion-content >
