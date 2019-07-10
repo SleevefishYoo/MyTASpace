@@ -2,5 +2,27 @@
     width: 100%;
     text-align: center;
     padding: 10px;
-  }
-  
+}
+.lab-divider {
+    // background: lightgray;
+    color: var(--ion-color-primary);
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 5px
+}
+
+.assignment-divider{
+    // background: lightgray;
+    color: var(--ion-color-primary);
+    font-weight: bold;
+     font-size: 20px;
+     padding-left: 5px
+}
+
+.others-divider{
+    //background: lightgray;
+    color: var(--ion-color-primary); 
+    font-weight: bold;
+     font-size: 20px;
+     padding-left: 5px
+}

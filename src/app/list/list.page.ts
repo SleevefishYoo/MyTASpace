@@ -12,6 +12,7 @@ export class ListPage implements OnInit {
   gradeItemList: Array<{Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean}> = [];
   courseID = null;
   loading = true;
+  courseName = '';
   private icons = [
     'flask',
     'wifi',
@@ -29,6 +30,7 @@ export class ListPage implements OnInit {
     private orgService: OrganizationService
     ) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('courseID'));
+    this.courseName = this.activatedRoute.snapshot.paramMap.get('courseName');
     this.orgService.gradeItemsMenuSubject.asObservable().subscribe(() => {
       this.gradeItemList = this.orgService.gradeItemsMenuItems;
       this.loading = false;

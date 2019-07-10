@@ -72,11 +72,9 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
-          text: 'Ok',
+          text: 'Submit',
           handler: (data) => {
             // TODO: Call function to check if there's mergge conflict&update server with new mark.
             console.log('Confirm Ok. New Grade: ' + data.newGrade);
@@ -118,11 +116,9 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
-          text: 'Ok',
+          text: 'Submit',
           handler: (data) => {
             // TODO: Call function to check if there's mergge conflict&update server with new mark.
             console.log('Confirm Ok. New Grade: ' + data.newGrade);
