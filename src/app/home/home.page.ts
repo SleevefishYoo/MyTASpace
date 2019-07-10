@@ -10,8 +10,10 @@ import { OrganizationService } from '../organization.service';
 export class HomePage {
   userFirstName = '';
   constructor(
-    private orgService: OrganizationService
-    ) {
-    this.userFirstName = this.orgService.userFirstName;
+    private orgService: OrganizationService) {
+      this.orgService.userFirstNameSubject.subscribe(() =>{
+        this.userFirstName = orgService.userFirstName;
+      });
+      this.userFirstName = this.orgService.userFirstName;
   }
 }
