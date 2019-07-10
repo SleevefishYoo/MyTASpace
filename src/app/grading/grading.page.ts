@@ -140,7 +140,7 @@ export class GradingPage implements OnInit {
   }
 
   gradeFirst() {
-    if(this.searchTerm === "") {return;}
+    if (this.searchTerm === '') {return; }
     this.gradeChangePrompt(this.gradingUsers[0].WLUID);
     this.searchTerm = '';
   }
