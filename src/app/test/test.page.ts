@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {BrightspaceService} from "../brightspace.service";
-import * as PARAMS from '../cred.json'
-import {HttpClient} from '@angular/common/http';
+import {BrightspaceService} from '../brightspace.service';
+import * as PARAMS from '../cred.json';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-test',
@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./test.page.scss'],
 })
 export class TestPage implements OnInit {
-  log = "Page Ready.";
+  log = 'Page Ready.';
 
   constructor(private brightspaceService: BrightspaceService,
               private http: HttpClient) {
@@ -20,7 +20,7 @@ export class TestPage implements OnInit {
   }
 
   getIdKey() {
-    prompt("Userid: " + this.brightspaceService.getUserKey() + "\n UserKey: " + this.brightspaceService.getUserID()+"\n Skew: "+this.brightspaceService.getSkew());
+    prompt('Userid: ' + this.brightspaceService.getUserKey() + '\n UserKey: ' + this.brightspaceService.getUserID()+'\n Skew: '+this.brightspaceService.getSkew());
   }
 
   setIdKey() {
@@ -28,11 +28,10 @@ export class TestPage implements OnInit {
     this.brightspaceService.setUserKey(PARAMS.Session.userKey);
     this.brightspaceService.redirectedURL = PARAMS.Session.CallBackURLWithParams;
     this.brightspaceService.setSessionSkew(this.brightspaceService.calcSkew());
-    this.getIdKey();
   }
 
   CreateUserContext() {
-    this.log = "isUserContextCreatable: " + this.brightspaceService.isUserContextCreatable();
+    this.log = 'isUserContextCreatable: ' + this.brightspaceService.isUserContextCreatable();
     this.brightspaceService.createUserContext();
   }
 
@@ -50,19 +49,12 @@ export class TestPage implements OnInit {
   }
 
   whoAmI() {
-    console.log("Gettingg response from:" + this.GenerateWhoAMIURL());
-    this.http.get('https://' + this.GenerateWhoAMIURL()).subscribe((response) => {
-      let res = {
-        "Identifier": "",
-        "FirstName": "",
-        "LastName": "",
-        "UniqueName": "",
-        "ProfileIdentifier": ""
-      };
-      // @ts-ignore
-      res = response;
-      this.log = "Getting response...";
-      this.log = JSON.stringify(res);
+    console.log('Getting response from:' + this.GenerateWhoAMIURL()); 
+    this.http.get('https://' + this.GenerateWhoAMIURL()).subscribe((response: UserResponse) => {
+      this.log = 'User Unique Name: ' + response.UniqueName;
+    },
+    (error: HttpErrorResponse) => {
+      this.log = 'Error Status: ' + error.status + '\nError Text: ' + error.message;
     });
   }
 
@@ -70,4 +62,13 @@ export class TestPage implements OnInit {
     prompt(this.brightspaceService.calcSkew());
     this.log = this.brightspaceService.redirectedURL;
   }
+
+}
+
+interface UserResponse {
+  Identifier: string;
+  FirstName: string;
+  LastName: string;
+  UniqueName: string;
+  ProfileIdentifier: string;
 }
