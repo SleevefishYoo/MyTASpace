@@ -72,11 +72,9 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
-          text: 'Ok',
+          text: 'Submit',
           handler: (data) => {
             // TODO: Call function to check if there's mergge conflict&update server with new mark.
             console.log('Confirm Ok. New Grade: ' + data.newGrade);
@@ -118,15 +116,13 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
-          text: 'Ok',
+          text: 'Submit',
           handler: (data) => {
             // TODO: Call function to check if there's mergge conflict&update server with new mark.
             console.log('Confirm Ok. New Grade: ' + data.newGrade);
-            if (this.orgService.validateGradeInput(data.newGrade, this.maxGrade, this.allowExceed)){
+            if (this.orgService.validateGradeInput(data.newGrade, this.maxGrade, this.allowExceed)) {
               console.log('Grade passed validation. Attempting to update the mark server-side.');
               // TODO: try updating the mark to the server.
             } else {

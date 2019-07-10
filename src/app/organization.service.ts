@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 // import D2L from 'valence/lib/valence.js';
 import { isNumeric } from 'rxjs/util/isNumeric';
-// import { merge } from 'lodash.merge'; 
+// import { merge } from 'lodash.merge';
 
 @Injectable({
   providedIn: 'root'
@@ -103,14 +103,14 @@ export class OrganizationService {
     this.labItems = [];
     this.otherItems = [];
 
-    var labCounter = 0;
-    var assignmentCounter = 0;
-    var otherCounter = 0;
+    let labCounter = 0;
+    let assignmentCounter = 0;
+    let otherCounter = 0;
 
     // push Labs, assignments and other into their correposnding arrays.
     for (const item of this.gradeItems) {
-      if (item.Name.charAt(0) == 'L' || item.Name.toLowerCase().includes('lab')) {
-        if (labCounter == 0) {
+      if (item.Name.charAt(0) === 'L' || item.Name.toLowerCase().includes('lab')) {
+        if (labCounter === 0) {
           this.labItems.push({
             Name: 'Lab',
             gradeItemID: '000000',
@@ -132,8 +132,8 @@ export class OrganizationService {
           });
         }
         labCounter += 1;
-      } else if (item.Name.charAt(0) == 'A' || item.Name.toLowerCase().includes('assignment')) {
-        if (assignmentCounter == 0) {
+      } else if (item.Name.charAt(0) === 'A' || item.Name.toLowerCase().includes('assignment')) {
+        if (assignmentCounter === 0) {
           this.assignmentItems.push({
             Name: 'Assignment',
             gradeItemID: '000000',
@@ -153,9 +153,10 @@ export class OrganizationService {
             allowExceed: Boolean(item.CanExceedMaxPoints),
             maxGrade: item.MaxPoints
           });
-        } assignmentCounter += 1;
+        }
+        assignmentCounter += 1;
       } else {
-        if (otherCounter == 0) {
+        if (otherCounter === 0) {
           this.otherItems.push({
             Name: 'Other',
             gradeItemID: '000000',
@@ -175,12 +176,13 @@ export class OrganizationService {
             allowExceed: Boolean(item.CanExceedMaxPoints),
             maxGrade: item.MaxPoints
           });
-        } otherCounter += 1;
+        }
+        otherCounter += 1;
       }
     }
 
     // sort each array here
-    this.labItems.sort(function (a, b) {
+    this.labItems.sort((a, b) => {
       if (a.Name > b.Name) {
         return 1;
       }
@@ -190,7 +192,7 @@ export class OrganizationService {
       return 0;
     });
 
-    this.assignmentItems.sort(function (a, b) {
+    this.assignmentItems.sort((a, b) => {
       if (a.Name > b.Name) {
         return 1;
       }
@@ -200,7 +202,7 @@ export class OrganizationService {
       return 0;
     });
 
-    this.otherItems.sort(function (a, b) {
+    this.otherItems.sort((a, b) => {
       if (a.Name > b.Name) {
         return 1;
       }
