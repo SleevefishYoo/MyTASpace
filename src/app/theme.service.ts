@@ -1,18 +1,21 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import * as Color from 'color';
+import {StatusBar} from "@ionic-native/status-bar/ngx";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document,private statusBar: StatusBar) {
 
    }
 
    setTheme(theme){
     const cssText = CSSTextGenerator(theme);
+    this.statusBar.styleBlackTranslucent();
+    this.statusBar.backgroundColorByHexString(theme.secondary);
     this.setGlobalCSS(cssText);
    }
    // Define a single CSS variable
@@ -52,8 +55,8 @@ function CSSTextGenerator(colors) {
     light
   } = colors;
 
-  const shadeRatio = 0.1;
-  const tintRatio = 0.1;
+  const shadeRatio = 0.3;
+  const tintRatio = 0.3;
 
   return `
     --ion-color-base: ${light};

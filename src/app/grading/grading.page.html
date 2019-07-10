@@ -7,7 +7,8 @@
   </ion-toolbar>
   <ion-searchbar 
     [(ngModel)]="searchTerm" 
-    (ionChange)="onSearchInput($event)" 
+    (ionChange)="onSearchInput($event)"
+    (keyup.enter)="gradeFirst()"
     mode="ios" 
     placeholder="Name/WLU ID/Network login"
     debounce = 200

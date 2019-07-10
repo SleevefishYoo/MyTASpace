@@ -5,6 +5,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { OrganizationService } from './organization.service';
+import { BrightspaceService } from './brightspace.service';
 import { Subscription } from 'rxjs';
 
 const themes = {
@@ -68,9 +69,13 @@ export class AppComponent {
     private menuCtrl: MenuController,
     private statusBar: StatusBar,
     private theme: ThemeService,
-    private storage: Storage) {
+    private storage: Storage,
+    private bService: BrightspaceService) {
     storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
-    this.orgService.updateNameOnPages(this.orgService.userINFO);
+    bService.validateSession();
+    this.orgService.userFirstNameSubject.subscribe(() => {
+      this.userFirstName = this.orgService.userFirstName;
+    });
     this.userFirstName = this.orgService.userFirstName;
     this.orgService.updateSideMenu(this.orgService.sample_response1);
     this.classList = this.orgService.sideMenuItems;
@@ -81,7 +86,12 @@ export class AppComponent {
     }
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.styleBlackTranslucent();
+      if (cordova.platformId == 'android') {
+        // this.statusBar.styleBlackOpaque()
+      }
+      // this.statusBar.backgroundColorByHexString('#33000000');
+      // this.statusBar.overlaysWebView(false);
       this.splashScreen.hide();
       this.platform.backButton.subscribe(() => {
         // this does work
