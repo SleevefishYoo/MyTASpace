@@ -27,6 +27,11 @@ export class ContactusPage {
     });
   }
 
+  removeImage() {
+    this.currentImage = null;
+  }
+
+
   sendEmail() {
     let email = {
       to: 'ziyaowangwayne@gmail.com',
