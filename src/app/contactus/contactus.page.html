@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contactus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+    <ion-title>
+      Emails + Images
+    </ion-title>
+</ion-header>
+ 
+<ion-content padding>
+  <button ion-button full (click)="captureImage()">Capture Image</button>
+  <button ion-button full (click)="sendEmail()">Send Email</button>
+ 
+  <ion-card>
+    <ion-card-header>Current image</ion-card-header>
+    <ion-card-content>
+      <img [src]="currentImage" *ngIf="currentImage" />
+    </ion-card-content>
+  </ion-card>
+</ion-content>
