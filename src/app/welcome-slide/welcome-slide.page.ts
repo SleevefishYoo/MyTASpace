@@ -9,19 +9,23 @@ import { MenuController } from '@ionic/angular';
 export class WelcomeSlidePage implements OnInit {
 
   constructor(private menuController: MenuController) {
-     
-  }
 
+  }
+  /*
   ionViewWillEnter() {
     this.menuController.enable(false);
   }
-  
+
   ionViewDidLeave() {
     this.menuController.enable(true);
   }
+  */
 
   ngOnInit() {
-    
+
   }
+ 
+    
+
   
 }
