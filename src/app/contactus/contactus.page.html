@@ -1,23 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Contactus</ion-title>
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary">Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-header>
-    <ion-title>
-      Emails + Images
-    </ion-title>
-</ion-header>
- 
+
 <ion-content padding>
-  <button ion-button full (click)="captureImage()">Capture Image</button>
-  <button ion-button full (click)="sendEmail()">Send Email</button>
- 
-  <ion-card>
-    <ion-card-header>Current image</ion-card-header>
-    <ion-card-content>
-      <img [src]="currentImage" *ngIf="currentImage" />
-    </ion-card-content>
-  </ion-card>
+  <ion-button (click)="captureImage()">Capture Image</ion-button>
+  <ion-button (click)="sendEmail()">Send Email</ion-button>
+  <ng-container *ngIf="currentImage">
+    <ion-card>
+      <ion-card-header>Current image</ion-card-header>
+      <ion-card-content>
+        <img [src]="currentImage"/>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
 </ion-content>
