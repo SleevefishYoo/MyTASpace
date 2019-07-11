@@ -48,8 +48,15 @@ export class AppComponent {
       icon: 'home'
     }
   ];
-  classList = [{Name: '', courseID: '' }];
+  classList = [
+    {
+      Name: '', 
+      courseID: '', 
+      icon: ''
+    }
+  ];
   userFirstName = '';
+
   public sidemenuBottom = [
     {
       title: 'Settings',
