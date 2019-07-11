@@ -99,7 +99,16 @@
   --background: var(--ion-color-primary);
   --color: white;
 }
-.ion-button {
-  --background: var(--ion-color-primary);
+
+// .ion-button {
+//   --background: var(--ion-color-primary);
+//   --color: white;
+// }
+
+.login_button{
+  --background: #FF9900;
   --color: white;
+  --background-activated: #D17E00;
+  --color-activated: white;
+
 }
