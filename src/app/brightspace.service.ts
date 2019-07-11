@@ -6,6 +6,8 @@ import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valenc
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { OrganizationService } from './organization.service';
+import { NavController } from '@ionic/angular';
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +39,7 @@ export class BrightspaceService {
   constructor(private storage: Storage,
               private iab: InAppBrowser,
               private http: HttpClient,
+              private navCtrl: NavController,
               private orgService: OrganizationService) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
@@ -214,9 +217,11 @@ export class BrightspaceService {
    */
   public logout() {
     // TODO: Kick user back to welcomeSlide/login page, AuthGuard
+    this.navCtrl.navigateRoot('welcome-slide');
     this.userContext = null;
     this.setSessionSkew(null);
     this.setUserKey(null);
     this.setUserID(null);
+
   }
 }

@@ -18,7 +18,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({mode: 'ios'}), //TODO:Remove this.
+    IonicModule.forRoot(),
     HttpClientModule,
     IonicStorageModule.forRoot(),
     AppRoutingModule,

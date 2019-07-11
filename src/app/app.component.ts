@@ -57,18 +57,7 @@ export class AppComponent {
   ];
   userFirstName = '';
 
-  public sidemenuBottom = [
-    {
-      title: 'Settings',
-      url: '/settings',
-      icon: 'settings'
-    },
-    {
-      title: 'Logout',
-      url: '/welcome-slide',
-      icon: 'log-out'
-    }
-  ];
+
 
   
   constructor(
@@ -92,11 +81,12 @@ export class AppComponent {
       this.classList = this.orgService.sideMenuItems;
     });
     this.initializeApp();
+
     }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleBlackTranslucent();
-      if (cordova.platformId == 'android') {
+      if (cordova.platformId === 'android') {
         // this.statusBar.styleBlackOpaque()
       }
       // this.statusBar.backgroundColorByHexString('#33000000');
@@ -106,6 +96,11 @@ export class AppComponent {
         // this does work
       });
     });
+
+  }
+
+  logout(){
+    this.bService.logout();
 
   }
 }
