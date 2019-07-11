@@ -1,21 +1,27 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="secondary">
-    <ion-buttons slot="start" >
+    <ion-buttons slot="start">
       <ion-menu-button color="tertiary"></ion-menu-button>
     </ion-buttons>
     <ion-title color="tertiary">Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
+ 
+ 
 <ion-content padding>
-  <ion-button (click)="captureImage()">Capture Image</ion-button>
-  <ion-button (click)="sendEmail()">Send Email</ion-button>
+   
+  <ion-row center>
+    <ion-col text-center>
+      <ion-button  style = "width: 150px; height: 50px" (click)="captureImage()">Capture Image</ion-button>
+      <ion-button  style = "width: 150px; height: 50px" (click)="sendEmail()">Send Email</ion-button>
+    </ion-col>
+  </ion-row>
+
   <ng-container *ngIf="currentImage">
     <ion-card>
       <ion-card-header>Current image</ion-card-header>
       <ion-card-content>
-        <img [src]="currentImage"/>
+        <img [src]="currentImage" />
       </ion-card-content>
     </ion-card>
   </ng-container>
