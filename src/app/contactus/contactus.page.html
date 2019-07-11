@@ -6,17 +6,35 @@
     <ion-title color="tertiary">Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
+<ion-img src="/assets/shapes.svg"></ion-img>
+ 
 <ion-content padding>
-  <ion-button (click)="captureImage()">Capture Image</ion-button>
-  <ion-button (click)="sendEmail()">Send Email</ion-button>
+  <ion-grid fixed>
+
+    <ion-item>
+      <ion-label color="primary" position="stacked"><h2>Developement Team</h2></ion-label>
+
+        <h4>Hengji Yao</h4><ion-text color= "medium">yaox0570@mylaurier.ca <br/></ion-text>
+        <h4>Haoquan You</h4><ion-text color= "medium">youx8420@mylaurier.ca<br/></ion-text>
+        <h4>Zhikai Zhan</h4><ion-text color= "medium">youx8420@mylaurier.ca<br/></ion-text>
+        <h4>Gehry ???</h4><ion-text color= "medium">youx8420@mylaurier.ca<br/></ion-text>
+        <h4>Ziyao Wang</h4><ion-text color= "medium">wang1682@mylaurier.ca<br/></ion-text>
+
+    </ion-item>
+    <ion-item>  
+      <ion-label color="primary" position="stacked"><h2>Feedback and report</h2></ion-label>
+      <hr>
+      <ion-button (click)="captureImage()" size="default">Upload Image</ion-button>
+      <ion-button (click)="sendEmail()" size="default">Send Email</ion-button>
+  </ion-item>
+</ion-grid>
   <ng-container *ngIf="currentImage">
     <ion-card>
-      <ion-card-header>Current image</ion-card-header>
-      <ion-card-content>
-        <img [src]="currentImage"/>
-      </ion-card-content>
+      <ion-icon name="checkmark"></ion-icon>
+      <ion-card-header>Image Selected</ion-card-header>
+      <!--<ion-card-content>
+        <ion-img src="currentImage"></ion-img>
+      </ion-card-content>-->
     </ion-card>
   </ng-container>
 </ion-content>
