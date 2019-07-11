@@ -6,23 +6,28 @@
     <ion-title color="tertiary">Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
- 
- 
+
+
 <ion-content padding>
-   
+
   <ion-row center>
     <ion-col text-center>
-      <ion-button  style = "width: 150px; height: 50px" (click)="captureImage()">Capture Image</ion-button>
-      <ion-button  style = "width: 150px; height: 50px" (click)="sendEmail()">Send Email</ion-button>
+      <ion-button style="width: 150px; height: 50px" (click)="captureImage()">Upload Image</ion-button>
+      <ion-button style="width: 150px; height: 50px" (click)="sendEmail()">Send Email</ion-button>
     </ion-col>
   </ion-row>
 
   <ng-container *ngIf="currentImage">
     <ion-card>
-      <ion-card-header>Current image</ion-card-header>
-      <ion-card-content>
+      <ion-row center>
+        <ion-col text-center>
+          <ion-card-header>Image Uploaded</ion-card-header>
+          <ion-button style="width: 150px; height: 50px " (click)="removeImage()">Remove</ion-button>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-card-content>
         <img [src]="currentImage" />
-      </ion-card-content>
+      </ion-card-content> -->
     </ion-card>
   </ng-container>
 </ion-content>
