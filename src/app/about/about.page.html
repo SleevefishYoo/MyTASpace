@@ -1,0 +1,45 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary">About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+  <ion-label color="dark" position="stacked">Version</ion-label>
+  <ion-textarea 
+    disabled:true
+    value="1.5.2" color="medium">
+  </ion-textarea>
+</ion-item>
+
+<ion-item>
+  <ion-label color="dark" position="stacked">Platform</ion-label>
+  <ion-textarea 
+    disabled:true
+    color="medium">{{platform()}}
+  </ion-textarea>
+</ion-item>
+<ion-item>
+
+
+ <ion-label color="dark" position="stacked">New features from last update</ion-label>
+<ion-textarea color="medium">
+  <hr>
+  1. Beautified the  UI of the home page. Add Icons to the buttons
+  <hr>
+  2. Fixed some bugs may cause the application crash on Android device.
+  <hr>
+  3. Modified the graphs used for welcome slides and added a login button.
+  <hr>
+  4. Successfully establish connection between the local server to the Learning Management System and allows the user to update the grades into the online server.
+  <hr>
+  5. Add testing funtion so that we can easily show the cool features.
+ </ion-textarea >
+</ion-item>
+
+</ion-content>
