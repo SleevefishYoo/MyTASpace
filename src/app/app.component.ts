@@ -8,6 +8,7 @@ import { OrganizationService } from './organization.service';
 import { BrightspaceService } from './brightspace.service';
 import { Subscription } from 'rxjs';
 
+
 const themes = {
 
   default: {
@@ -62,6 +63,7 @@ export class AppComponent {
     }
   ];
 
+  
   constructor(
     private platform: Platform,
     private orgService: OrganizationService,
