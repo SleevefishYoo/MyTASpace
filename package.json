@@ -1,5 +1,5 @@
 {
-  "name": "MyLorisSpace",
+  "name": "MyTASpace",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -93,12 +93,13 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-statusbar": {}
+      "cordova-plugin-statusbar": {},
       "cordova-plugin-email-composer": {},
       "cordova-plugin-camera": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
