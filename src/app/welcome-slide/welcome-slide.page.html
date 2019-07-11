@@ -1,12 +1,44 @@
-<!--<ion-content padding>-->
+
   <ion-content fullscreen padding scroll-y="false">
 
   <ion-slides pager="true">
-    <ion-slide *ngFor="let slide of slider">
-      <img [src]="slide.image" class = "a"/>
-      <!-- <h2 [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p> -->
+    <ion-slide>
+      <ion-grid fixed>
+
+      <h2>Welcome to</h2>
+      <h1 class="middle">My<span class="orange">TA</span>Space</h1>
+      <h1 class="swipe">Swipe right to go through user guide.</h1>
+
+
+     
+      </ion-grid>
     </ion-slide>
+
+    <ion-slide>
+      <ion-grid fixed>
+
+      <img src="assets/person.png">
+      <h1 class="grade_title">This is a <span class="orange">grading</span> app.</h1>
+      <h1 class="grade_content">MyTASpace is a grading application designed for Teaching Assistant at Laurier.</h1>
+
+
+     
+      </ion-grid>
+    </ion-slide>
+
+    
+  
+  
+
+  
+    
   </ion-slides>
 
+
+ 
+
+
+  
+
+  
 </ion-content>

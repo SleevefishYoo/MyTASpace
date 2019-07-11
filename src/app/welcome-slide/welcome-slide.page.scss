@@ -1,25 +1,48 @@
-#first {
-    background-color: black;
+
+
+h2{
+   font-size: 17pt;
+   padding-top: 60%;
+   margin-bottom: 0%; 
 }
 
-.words{
-    color: red;
+.orange{
+    color: #FF9900;
 }
 
-// .slideroption{
-//                     // max-width: 100% !important;
-//                     // max-height: 100% !important;
-//                     border-radius: 5px;
+.middle{
+    margin-top: 0%;
+    font-size: 36pt;
+    padding-bottom: 50%;
+}
 
-//                         .slide-zoom{
-//                                 width:100% !important;
-//                                 height:100% !important;
-//                             img{
-//                                 width:100% !important;
-//                                 height:100% !important;
-//                                 border-radius: 5px;
-//                                 margin-left: 100px;
-//                             }
-//                         }
+.swipe{
+    margin-top: 40%;
+    font-size: 10pt;
+    margin-bottom: 20%;
+}
 
-//                 }
+img{
+    width: 50%;
+    height: 50%;
+    margin-top: 60%;
+    margin-bottom: 5%;
+
+}
+
+.grade_title{
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.grade_content{
+    font-size: 10pt;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+ 
