@@ -298,9 +298,10 @@ export class OrganizationService {
 
   public showNormalToast(userMessage: string) {
     this.toast = this.toastController.create({
-      message: userMessage,
+      message: '✔️ ' + userMessage,
       duration: 2000,
-      cssClass: 'normal-toast'
+      cssClass: 'normal-toast',
+      position: 'top'
     }).then((toastData) => {
       toastData.present();
     });
@@ -308,9 +309,10 @@ export class OrganizationService {
 
   public showWarningToast(userMessage: string) {
     this.toast = this.toastController.create({
-      message: userMessage,
+      message: '🥺 ' + userMessage,
       duration: 2000,
-      cssClass: 'warning-toast'
+      cssClass: 'warning-toast',
+      position: 'top'
     }).then((toastData) => {
       toastData.present();
     });

@@ -12,18 +12,14 @@
   <ion-img src="/assets/shapes.svg"></ion-img>
   <ion-item>
   <ion-label color="dark" position="stacked">Version</ion-label>
-  <ion-textarea 
-    disabled:true
-    value="1.5.2" color="medium">
-  </ion-textarea>
+  <ion-label color="medium">{{version()}}</ion-label>
 </ion-item>
 
 <ion-item>
   <ion-label color="dark" position="stacked">Platform</ion-label>
-  <ion-textarea 
-    disabled:true
-    color="medium">{{platform()}}
-  </ion-textarea>
+  <ion-label color="medium">
+    {{platform()}}
+  </ion-label>
 </ion-item>
 <ion-item>
 

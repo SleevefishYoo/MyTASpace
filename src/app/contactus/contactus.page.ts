@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { version } from '../../../package.json';
 
 @Component({
   selector: 'app-grading',
   templateUrl: 'contactus.page.html'
 })
 export class ContactusPage {
+  public ver: string = version;
 
   currentImage = null;
 
   constructor(private camera: Camera,
-              private emailComposer: EmailComposer) { }
+    private emailComposer: EmailComposer) { }
 
   captureImage() {
     const options: CameraOptions = {
@@ -21,9 +23,6 @@ export class ContactusPage {
 
     this.camera.getPicture(options).then((imageData) => {
       this.currentImage = imageData;
-    }, (err) => {
-      // Handle error
-      prompt('Image error: ', err);
     });
   }
 
@@ -36,12 +35,23 @@ export class ContactusPage {
     let email = {
       to: 'ziyaowangwayne@gmail.com',
       attachments: [this.currentImage],
-      subject: 'Test',
-      body: 'test',
+      subject: 'MyTASpace Support: ',
+      body: 'Platform: ' + this.platform() + '\nVersion: ' + this.ver
+        + '\nPlease describe the issue you\'ve encountered with MyTASpace below:\n',
       isHtml: true
     };
 
     this.emailComposer.open(email);
   }
- 
+
+
+
+  platform() {
+    if (cordova.platformId === 'android') {
+      return 'Android';
+    } else {
+      return 'IOS';
+    }
+  }
+
 }

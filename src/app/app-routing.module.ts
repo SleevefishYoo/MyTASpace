@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { BrightspaceService } from './brightspace.service';
+import { LoginGuardService } from './login-guard.service';
 
 const routes: Routes = [
   {
@@ -10,18 +11,44 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule', canActivate: [BrightspaceService]
+    loadChildren: './home/home.module#HomePageModule',
+    canActivate: [BrightspaceService]
   },
   {
     path: 'list/:courseID/:courseName',
-    loadChildren: './list/list.module#ListPageModule', canActivate: [BrightspaceService]
+    loadChildren: './list/list.module#ListPageModule',
+    canActivate: [BrightspaceService]
   },
-  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule', canActivate: [BrightspaceService]},
-  { path: 'welcome-slide', loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule' },
-  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule', canActivate: [BrightspaceService] },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule', canActivate: [BrightspaceService]},
-  { path: 'contactus', loadChildren: './contactus/contactus.module#ContactusPageModule', canActivate: [BrightspaceService] },
-  { path: 'test', loadChildren: './test/test.module#TestPageModule', canActivate: [BrightspaceService] }
+  {
+    path: 'settings',
+    loadChildren: './settings/settings.module#SettingsPageModule',
+    canActivate: [BrightspaceService]
+  },
+  {
+    path: 'welcome-slide',
+    loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule',
+    canActivate: [LoginGuardService]
+  },
+  {
+    path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed',
+    loadChildren: './grading/grading.module#GradingPageModule',
+    canActivate: [BrightspaceService]
+  },
+  {
+    path: 'about',
+    loadChildren: './about/about.module#AboutPageModule',
+    canActivate: [BrightspaceService]
+  },
+  {
+    path: 'contactus',
+    loadChildren: './contactus/contactus.module#ContactusPageModule',
+    canActivate: [BrightspaceService]
+  },
+  {
+    path: 'test',
+    loadChildren: './test/test.module#TestPageModule',
+    canActivate: [BrightspaceService]
+  }
 
 
 ];
@@ -32,4 +59,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -114,12 +114,10 @@ export class BrightspaceService implements CanActivate {
       data => {
         const url = data.url;
         if (url.indexOf('&x_c=') !== -1) {
-          // prompt('Success.');
           const params = ((url).split('?')[1]).split('&');
           this.setUserID(params[0].split('=')[1]);
           this.setUserKey(params[1].split('=')[1]);
           this.setSessionSkew(Util.calculateSkew(url));
-          // prompt('Userid: ' + params[0].split('=')[1] + '\n UserKey: ' + params[1].split('=')[1] + '\n Skew: ' + Util.calculateSkew(url));
           this.redirectedURL = url;
           browser.hide();
           this.createUserContext(true);
@@ -179,13 +177,15 @@ export class BrightspaceService implements CanActivate {
    * @return boolean
    */
   public isUserContextCreatable(): boolean {
-    return this.userID !== '' && this.userKey !== '' && this.sessionSkew !== '';
+    return this.userID !== '' && this.userKey !== '' && this.sessionSkew !== ''
+    && this.userID != null && this.userKey != null && this.sessionSkew != null;
   }
 
   /**
    * Determines whether the current userContext created is valid on the server side,
    * and kick user out of the app if session is no longer valid.
    * TODO:Finish it.
+   * @param userLogin should pass true when it is a user initiated userContext creation, so There will be a pop up appear.
    */
   public async validateSession(userLogin = false) {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
@@ -215,6 +215,7 @@ export class BrightspaceService implements CanActivate {
   /**
    * Create a new userContext using the userID, Key, Skew set in the instance. Then call validateSession
    * to check if current session info is still recognized by the server.
+   * @param userLogin should pass true when it is a user initiated userContext creation, so There will be a pop up appear.
    */
   public createUserContext(userLogin = false) {
     console.log('Trying to create User Context. isUserContextCreatable() = ' + this.isUserContextCreatable());

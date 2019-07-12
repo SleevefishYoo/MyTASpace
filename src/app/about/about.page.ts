@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { version } from '../../../package.json';
 
 @Component({
   selector: 'app-about',
@@ -6,18 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-
+  public ver: string = version;
   constructor() { }
 
   ngOnInit() {
   }
-  
-  platform(){
-    if(cordova.platformId === 'android'){
+
+  version() {
+    return this.ver;
+  }
+  platform() {
+    if (cordova.platformId === 'android') {
       return 'Android';
-      }
-      else{
+      } else {
         return 'IOS';
-        }
+      }
   }
 }

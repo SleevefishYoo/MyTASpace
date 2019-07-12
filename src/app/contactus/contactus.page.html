@@ -1,65 +1,67 @@
 <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-buttons slot="start">
-        <ion-menu-button color="tertiary"></ion-menu-button>
-      </ion-buttons>
-      <ion-title color="tertiary">Contact Us</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-img src="/assets/shapes.svg"></ion-img>
-  
-  <ion-content padding>
-    <ion-grid fixed>
-  
-      <ion-item>
-        <ion-label color="primary" position="stacked">
-          <h2>Developement Team</h2>
-        </ion-label>
-  
-        <h4>Yiheng Yao</h4>
-        <ion-text color="medium">yaox0570@mylaurier.ca <br /></ion-text>
-        <h4>Haoquan You</h4>
-        <ion-text color="medium">youx8420@mylaurier.ca<br /></ion-text>
-        <h4>Zhikai Zhan</h4>
-        <ion-text color="medium">zhan9969@mylaurier.ca<br /></ion-text>
-        <h4>Yicheng Fan</h4>
-        <ion-text color="medium">fanx1620@mylaurier.ca<br /></ion-text>
-        <h4>Ziyao Wang</h4>
-        <ion-text color="medium">wang1682@mylaurier.ca<br /></ion-text>
-        
-  
-      </ion-item>
-  
-      
-      <ion-item>
-        <ion-label color="primary" position="stacked">
-          <hr>
-          <h2>Feedback and report</h2>
-        </ion-label>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="tertiary">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-img src="/assets/shapes.svg"></ion-img>
+
+<ion-content padding>
+  <ion-grid fixed>
+
+    <ion-item>
+      <ion-label color="primary" position="stacked">
+        <h2>Developement Team</h2>
+      </ion-label>
+
+      <h4>Yicheng Fan</h4>
+      <ion-text color="medium">fanx1620@mylaurier.ca<br /></ion-text>
+      <h4>Ziyao Wang</h4>
+      <ion-text color="medium">wang1682@mylaurier.ca<br /></ion-text>
+      <h4>Yiheng Yao</h4>
+      <ion-text color="medium">yaox0570@mylaurier.ca <br /></ion-text>
+      <h4>Haoquan You</h4>
+      <ion-text color="medium">youx8420@mylaurier.ca<br /></ion-text>
+      <h4>Zhikai Zhan</h4>
+      <ion-text color="medium">zhan9969@mylaurier.ca<br /></ion-text>
+
+
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label color="primary" position="stacked">
         <hr>
-        <ion-row center>
-          <ion-col text-center>
-            <div>
-            <ion-button style="width: 270px; height: 50px "  (click)="captureImage()">Upload Image</ion-button>
-            </div>
-            <ion-button style="width: 270px; height: 50px " (click)="sendEmail()">Send Email</ion-button>
-            <div></div>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-grid>
-    <ng-container *ngIf="currentImage">
-      <ion-card> 
-        <ion-icon name="checkmark"></ion-icon>
-          <ion-row center>
-            <ion-col text-center>
-              <ion-card-header>Image Uploaded</ion-card-header>
-              <ion-button style="width: 150px; height: 50px " (click)="removeImage()">Remove</ion-button>
-            </ion-col>
-          </ion-row>
-        <!--<ion-card-content>
+        <h2>Feedback and report</h2>
+      </ion-label>
+      <hr>
+      <ion-row center>
+        <ion-col text-center>
+          <div>
+            <ion-button class="login_button" style="width: 270px; height: 50px " (click)="captureImage()">Select Image
+            </ion-button>
+          </div>
+          <ion-button class="login_button" style="width: 270px; height: 50px " (click)="sendEmail()">Send Email
+          </ion-button>
+          <div></div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-grid>
+  <ng-container *ngIf="currentImage">
+    <ion-card>
+      <ion-row center>
+        <ion-col text-center>
+          <ion-card-header>Image Selected.</ion-card-header>
+          <ion-button class="login_button" style="width: 150px; height: 50px " (click)="removeImage()">Remove
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--<ion-card-content>
           <ion-img src="currentImage"></ion-img>
         </ion-card-content>-->
-      </ion-card>
-    </ng-container>
-  </ion-content>
+    </ion-card>
+  </ng-container>
+</ion-content>
