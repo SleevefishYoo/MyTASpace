@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { BrightspaceService } from './brightspace.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome-slide',
     pathMatch: 'full'
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    loadChildren: './home/home.module#HomePageModule', canActivate: [BrightspaceService]
   },
   {
     path: 'list/:courseID/:courseName',
-    loadChildren: './list/list.module#ListPageModule'
+    loadChildren: './list/list.module#ListPageModule', canActivate: [BrightspaceService]
   },
-  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule', canActivate: [BrightspaceService]},
   { path: 'welcome-slide', loadChildren: './welcome-slide/welcome-slide.module#WelcomeSlidePageModule' },
-  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule' },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
-  { path: 'contactus', loadChildren: './contactus/contactus.module#ContactusPageModule' },
-  { path: 'test', loadChildren: './test/test.module#TestPageModule' }
+  { path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed', loadChildren: './grading/grading.module#GradingPageModule', canActivate: [BrightspaceService] },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule', canActivate: [BrightspaceService]},
+  { path: 'contactus', loadChildren: './contactus/contactus.module#ContactusPageModule', canActivate: [BrightspaceService] },
+  { path: 'test', loadChildren: './test/test.module#TestPageModule', canActivate: [BrightspaceService] }
 
 
 ];

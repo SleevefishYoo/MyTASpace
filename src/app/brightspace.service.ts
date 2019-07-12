@@ -6,13 +6,16 @@ import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valenc
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { OrganizationService } from './organization.service';
+import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrightspaceService {
+export class BrightspaceService implements CanActivate {
+
   private appID = PARAMS.Brightspace.appID;
   private appKey = PARAMS.Brightspace.appKey;
   private userID = '';
@@ -40,7 +43,8 @@ export class BrightspaceService {
               private iab: InAppBrowser,
               private http: HttpClient,
               private navCtrl: NavController,
-              private orgService: OrganizationService) {
+              private orgService: OrganizationService,
+              private splashScreen: SplashScreen) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
     storage.get('userID').then(userID => {
@@ -69,6 +73,9 @@ export class BrightspaceService {
     });
   }
 
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    return this.authenticated;
+  }
   /**
    * Get Current userID
    */
@@ -101,19 +108,21 @@ export class BrightspaceService {
     const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
       location: 'no',
       zoom: 'no',
+      clearsessioncache: 'yes'
     });
     browser.on('loadstart').subscribe(
       data => {
         const url = data.url;
         if (url.indexOf('&x_c=') !== -1) {
-          browser.hide();
-          prompt('Success.');
+          // prompt('Success.');
           const params = ((url).split('?')[1]).split('&');
           this.setUserID(params[0].split('=')[1]);
           this.setUserKey(params[1].split('=')[1]);
           this.setSessionSkew(Util.calculateSkew(url));
-          prompt('Userid: ' + params[0].split('=')[1] + '\n UserKey: ' + params[1].split('=')[1] + '\n Skew: ' + Util.calculateSkew(url));
+          // prompt('Userid: ' + params[0].split('=')[1] + '\n UserKey: ' + params[1].split('=')[1] + '\n Skew: ' + Util.calculateSkew(url));
           this.redirectedURL = url;
+          browser.hide();
+          this.createUserContext(true);
         }
       });
   }
@@ -178,19 +187,24 @@ export class BrightspaceService {
    * and kick user out of the app if session is no longer valid.
    * TODO:Finish it.
    */
-  public async validateSession() {
+  public async validateSession(userLogin = false) {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
     console.log('Testingg if current userContext is Valid: Getting response from:' + url);
     await this.http.get('https://' + url).subscribe((response) => {
       this.orgService.updateNameOnPages(JSON.stringify(response));
       console.log('Session Valid');
       this.authenticated = true;
+      this.navCtrl.navigateRoot('/home');
+      if (userLogin) {
+        this.orgService.showNormalToast('You are logged in.');
+      }
+      this.splashScreen.hide();
     },
     (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.authenticated = false;
         this.orgService.showWarningToast('Session info Expired. Please Sign in again.');
-        // this.logout();
+        this.logout(0);
       }
       if (error.status === 0) {
         this.orgService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
@@ -202,26 +216,30 @@ export class BrightspaceService {
    * Create a new userContext using the userID, Key, Skew set in the instance. Then call validateSession
    * to check if current session info is still recognized by the server.
    */
-  public createUserContext() {
+  public createUserContext(userLogin = false) {
     console.log('Trying to create User Context. isUserContextCreatable() = ' + this.isUserContextCreatable());
     if (this.isUserContextCreatable()) {
       console.log('Creating user Context with ID:' + this.userID + ' Key:' + this.userKey + ' Skew:' + this.sessionSkew);
       this.userContext = this.appContext.createUserContextWithValues(
         PARAMS.Brightspace.Host, 443, this.userID, this.userKey, this.sessionSkew);
-      this.validateSession();
+      this.validateSession(userLogin);
     }
   }
 
   /**
    * Clear session info and kick user back to welcome page.
+   * @param cause 1:user initiated logout, other: other reasons
    */
-  public logout() {
-    // TODO: Kick user back to welcomeSlide/login page, AuthGuard
-    this.navCtrl.navigateRoot('welcome-slide');
+  public logout(cause: number) {
     this.userContext = null;
     this.setSessionSkew(null);
     this.setUserKey(null);
     this.setUserID(null);
+    this.authenticated = false;
+    if (cause === 1) {
+      this.orgService.showNormalToast('You are logged out.');
+    }
+    this.navCtrl.navigateRoot('welcome-slide');
 
   }
 }

@@ -1,26 +1,26 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import * as Color from 'color';
-import {StatusBar} from "@ionic-native/status-bar/ngx";
+import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
 
-  constructor(@Inject(DOCUMENT) private document: Document,private statusBar: StatusBar) {
+  constructor(@Inject(DOCUMENT) private document: Document, private statusBar: StatusBar) {
 
    }
 
-   setTheme(theme){
+   setTheme(theme) {
     const cssText = CSSTextGenerator(theme);
-    this.statusBar.styleBlackTranslucent();
+    // this.statusBar.styleBlackTranslucent();
     this.statusBar.backgroundColorByHexString(theme.secondary);
     this.setGlobalCSS(cssText);
    }
    // Define a single CSS variable
-   setVariable(name, value){
-    this.document.documentElement.style.setProperty(name,value);
+   setVariable(name, value) {
+    this.document.documentElement.style.setProperty(name, value);
    }
   setGlobalCSS(css: string) {
     this.document.documentElement.style.cssText = css;
