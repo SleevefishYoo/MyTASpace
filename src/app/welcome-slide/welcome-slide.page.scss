@@ -2,8 +2,9 @@
 
 h2{
    font-size: 17pt;
-   padding-top: 60%;
+   padding-top: 40vh;
    margin-bottom: 0%; 
+   font: "Verdana";
 }
 
 .orange{
@@ -13,29 +14,35 @@ h2{
 .middle{
     margin-top: 0%;
     font-size: 36pt;
-    padding-bottom: 50%;
+   font: "Verdana";
+    // margin-bottom: 30vh;
 }
 
 .swipe{
-    margin-top: 40%;
+    margin-top: 20vh;
     font-size: 10pt;
-    margin-bottom: 20%;
+    margin-bottom: 40vh;
 }
 
 img{
-    width: 60%;
-    height: 60%;
-    margin-top: 60%;
-    margin-bottom: 5%;
+    // width: 60%;
+    // height: 60%;
+    max-width:40vw;
+    max-height: 40vh;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
 
 }
 
 .image_size2{
-    width: 50%;
-    height: 50%;
-    margin-top: 70%;
+    // width: 50%;
+    max-width: 40%;
+    max-height: 40vh;
+    // height: 50%;
+    margin-top: 22.5vh;
     margin-bottom: 5%;
 }
+
 
 .title{
     font-size: 18pt;
@@ -56,25 +63,25 @@ img{
     max-width: 280px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 90%;
+    margin-bottom: 30vh;
 }
 
 
 .logo{
-    margin-top: 60%;
+    margin-top: 25vh;
+    margin-bottom: 10vh;
     font-size: 36pt;
 }
 
 
+ion-slide {
+    height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    --bullet-background-active: "orange";
+}
 
-
-
-
-
-
-
-
-
-
-
- 
+ .dark-page {
+    background: var(--ion-color-dark);
+    color: white;
+}
