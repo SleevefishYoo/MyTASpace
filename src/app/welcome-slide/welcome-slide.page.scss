@@ -2,7 +2,7 @@
 
 h2{
    font-size: 17pt;
-   padding-top: 40vh;
+   padding-top: 50vh;
    margin-bottom: 0%; 
    font: "Verdana";
 }
@@ -19,7 +19,7 @@ h2{
 }
 
 .swipe{
-    margin-top: 20vh;
+    margin-top: 40vh;
     font-size: 10pt;
     margin-bottom: 40vh;
 }
@@ -69,7 +69,7 @@ img{
 
 .logo{
     margin-top: 25vh;
-    margin-bottom: 10vh;
+    margin-bottom: 0;
     font-size: 36pt;
 }
 
@@ -82,6 +82,6 @@ ion-slide {
 }
 
  .dark-page {
-    background: var(--ion-color-dark);
+    background: #212121;
     color: white;
 }

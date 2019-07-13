@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuController, Platform, IonSlides } from '@ionic/angular';
 import { BrightspaceService } from '../brightspace.service';
 import { Storage } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-welcome-slide',
@@ -13,13 +14,15 @@ export class WelcomeSlidePage implements OnInit {
   constructor(private menuController: MenuController,
               private platform: Platform,
               private bService: BrightspaceService,
-              private storage: Storage) {
+              private storage: Storage,
+              private statusBar: StatusBar) {
 
   }
 
   sub;
 
   ionViewWillEnter() {
+    this.statusBar.hide();
     this.menuController.enable(false);
     this.sub = this.platform.backButton.subscribeWithPriority(1, () => {});
     this.platform.backButton.unsubscribe();
@@ -36,11 +39,12 @@ export class WelcomeSlidePage implements OnInit {
   }
 
   login() {
+    this.statusBar.show();
     this.bService.login();
   }
   ngOnInit() {
     this.storage.get('not_first_time').then((isNotFirst) => {
-      if (isNotFirst) { this.delay(500).then(() => {
+      if (isNotFirst) { this.delay(200).then(() => {
         this.jumpToLogin();
         });
       }
