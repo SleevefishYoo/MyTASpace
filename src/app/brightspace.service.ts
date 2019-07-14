@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import * as PARAMS from './cred.json';
 import {Storage} from '@ionic/storage';
 import { Subject } from 'rxjs/Subject';
-import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
+import { ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -25,6 +25,8 @@ export class BrightspaceService implements CanActivate {
   private userIDSubject: Subject<string>  = new Subject<string>();
   private userKeySubject: Subject<string> = new Subject<string>();
   private sessionSkewSubject: Subject<string> = new Subject<string>();
+  public userFirstName = '';
+  public userFirstNameSubject: Subject<string> = new Subject<string>();
 
 
   private CALLBACK_PARAM = 'https://apitesttool.desire2learnvalence.com/';
@@ -46,6 +48,7 @@ export class BrightspaceService implements CanActivate {
               private toastService: ToastService,
               private splashScreen: SplashScreen) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
+
 
     storage.get('userID').then(userID => {
       this.userID = userID;
@@ -201,10 +204,10 @@ export class BrightspaceService implements CanActivate {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
     console.log('Testingg if current userContext is Valid: Getting response from:' + url);
     await this.http.get('https://' + url).subscribe((response) => {
-      this.toastService.updateNameOnPages(JSON.stringify(response));
       console.log('Session Valid');
       this.authenticated = true;
       this.navCtrl.navigateRoot('/home');
+      this.updateNameOnPages(JSON.stringify(response));
       if (userLogin) {
         this.toastService.showNormalToast('You are logged in.');
       }
@@ -221,6 +224,8 @@ export class BrightspaceService implements CanActivate {
       }
     });
   }
+
+
 
   /**
    * Create a new userContext using the userID, Key, Skew set in the instance. Then call validateSession
@@ -252,5 +257,10 @@ export class BrightspaceService implements CanActivate {
     }
     this.navCtrl.navigateRoot('welcome-slide');
 
+  }
+
+  public updateNameOnPages(jsonResponse: string) {
+    this.userFirstName = JSON.parse(jsonResponse).FirstName;
+    this.userFirstNameSubject.next('new user Name');
   }
 }

@@ -71,10 +71,10 @@ export class AppComponent {
     private bService: BrightspaceService) {
     storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
     bService.validateSession();
-    this.orgService.userFirstNameSubject.subscribe(() => {
-      this.userFirstName = this.orgService.userFirstName;
+    this.bService.userFirstNameSubject.subscribe(() => {
+      this.userFirstName = this.bService.userFirstName;
     });
-    this.userFirstName = this.orgService.userFirstName;
+    this.userFirstName = this.bService.userFirstName;
     this.orgService.updateSideMenu(this.orgService.sample_response1);
     this.classList = this.orgService.sideMenuItems;
     this.orgService.sideMenuSubject.asObservable().subscribe(() => {

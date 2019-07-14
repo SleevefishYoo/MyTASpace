@@ -1,0 +1,17 @@
+https://docs.valence.desire2learn.com/res/grade.html#Grade.IncomingGradeValue
+
+PUT /d2l/api/le/(version)/(orgUnitId)/grades/(gradeObjectId)/values/(userId)
+JSON Parameters:
+{
+    "GradeObjectType": 1,
+    "PointsNumerator": <number:decimal>
+}
+
+Provide a specific grade value for a particular user.
+
+
+GET /d2l/api/le/1.35/(orgUnitId)/grades/(gradeObjectId)/values/?sort=lastname&pageSize=200
+Retrieve each user’s grade value for a particular grade object.
+
+GET /d2l/api/lp/1.10/enrollments/myenrollments/
+Retrieve the list of all enrollments for the current user.
