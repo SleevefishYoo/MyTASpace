@@ -9,6 +9,7 @@ import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ToastService } from './toast.service.js';
+import { HTTPResponse, HTTP } from '@ionic-native/http/ngx';
 
 
 @Injectable({
@@ -27,6 +28,8 @@ export class BrightspaceService implements CanActivate {
   private sessionSkewSubject: Subject<string> = new Subject<string>();
   public userFirstName = '';
   public userFirstNameSubject: Subject<string> = new Subject<string>();
+  public sideMenuItems: Array<{ Name: string; courseID: string, icon: string }> = [];
+  public sideMenuSubject: Subject<string> = new Subject<string>();
 
 
   private CALLBACK_PARAM = 'https://apitesttool.desire2learnvalence.com/';
@@ -44,6 +47,7 @@ export class BrightspaceService implements CanActivate {
   constructor(private storage: Storage,
               private iab: InAppBrowser,
               private http: HttpClient,
+              private nhttp: HTTP,
               private navCtrl: NavController,
               private toastService: ToastService,
               private splashScreen: SplashScreen) {
@@ -75,6 +79,53 @@ export class BrightspaceService implements CanActivate {
       this.storage.set('sessionSkew', this.sessionSkew);
     });
   }
+
+
+  async updateSideMenu() {
+    let jsonResponse = '';
+    const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
+    await this.nhttp.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
+      jsonResponse = data.data;
+      console.log(data.data);
+    }, (err: HTTPResponse) => {
+      if (err.status === 404) {
+        this.toastService.showWarningToast('Your enrollments cannot be found on the server.\nContact Us if you think this is wrong.');
+      } else if (err.status === 403) {
+        this.toastService.showWarningToast('You have no permission to see your enrollments.\nContact Us if you think this is wrong.');
+        this.validateSession();
+      } else if (err.status === -3) {
+        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
+      } else {
+        prompt(err.status + ': ' + err.data);
+      }
+    });
+    if (jsonResponse === '') { return; }
+    this.sideMenuItems = [];
+    const courses = JSON.parse(jsonResponse).Items;
+    let cc = '';
+
+    for (const course of courses) {
+      if (course.OrgUnit.Type.Id !== 3 || (course.Access.ClasslistRoleName !== 'TA' && course.Access.ClasslistRoleName !== 'Instructor')) { continue; }
+      if (course.OrgUnit.Name.includes('CP')) {
+        cc = 'laptop';
+      } else if (course.OrgUnit.Name.includes('MA')) {
+        cc = 'calculator';
+      } else if (course.OrgUnit.Name.includes('PC')) {
+        cc = 'magnet';
+      } else {
+        cc = 'desktop';
+      }
+
+      this.sideMenuItems.push({
+        Name: course.OrgUnit.Name,
+        courseID: course.OrgUnit.Id,
+        icon: cc
+      });
+    }
+    this.sideMenuSubject.next('new Menu Items.');
+  }
+
+
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     return this.authenticated;
@@ -208,6 +259,7 @@ export class BrightspaceService implements CanActivate {
       this.authenticated = true;
       this.navCtrl.navigateRoot('/home');
       this.updateNameOnPages(JSON.stringify(response));
+      this.updateSideMenu();
       if (userLogin) {
         this.toastService.showNormalToast('You are logged in.');
       }

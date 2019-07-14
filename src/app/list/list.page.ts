@@ -10,7 +10,7 @@ import { OrganizationService } from '../organization.service';
 })
 export class ListPage implements OnInit {
   gradeItemList: Array<{Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean}> = [];
-  courseID = null;
+  courseID = 0;
   loading = true;
   courseName = '';
   private icons = [

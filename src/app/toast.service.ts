@@ -10,7 +10,7 @@ export class ToastService {
   toast;
   public showNormalToast(userMessage: string) {
     this.toast = this.toastController.create({
-      message: '✔️ ' + userMessage,
+      message: '✔️  ' + userMessage,
       duration: 2000,
       cssClass: 'normal-toast',
       position: 'top'
@@ -21,8 +21,8 @@ export class ToastService {
 
   public showWarningToast(userMessage: string) {
     this.toast = this.toastController.create({
-      message: '🥺 ' + userMessage,
-      duration: 2000,
+      message: '🥺  ' + userMessage,
+      duration: 5000,
       cssClass: 'warning-toast',
       position: 'top'
     }).then((toastData) => {

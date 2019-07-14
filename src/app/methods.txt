@@ -15,3 +15,6 @@ Retrieve each user’s grade value for a particular grade object.
 
 GET /d2l/api/lp/1.10/enrollments/myenrollments/
 Retrieve the list of all enrollments for the current user.
+
+/d2l/api/le/1.35/(orgUnitId)/grades/
+Retrieve all the grade objects for the current user context assigned in a particular org unit.

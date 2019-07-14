@@ -74,12 +74,10 @@ export class AppComponent {
     this.bService.userFirstNameSubject.subscribe(() => {
       this.userFirstName = this.bService.userFirstName;
     });
-    this.userFirstName = this.bService.userFirstName;
-    this.orgService.updateSideMenu(this.orgService.sample_response1);
-    this.classList = this.orgService.sideMenuItems;
-    this.orgService.sideMenuSubject.asObservable().subscribe(() => {
-      this.classList = this.orgService.sideMenuItems;
+    this.bService.sideMenuSubject.asObservable().subscribe(() => {
+      this.classList = this.bService.sideMenuItems;
     });
+    this.classList = this.bService.sideMenuItems;
     this.initializeApp();
 
     }
@@ -91,9 +89,6 @@ export class AppComponent {
       }
       // this.statusBar.backgroundColorByHexString('#33000000');
       // this.statusBar.overlaysWebView(false);
-      this.platform.backButton.subscribe(() => {
-        // this does work
-      });
     });
 
   }
