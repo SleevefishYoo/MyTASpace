@@ -5,10 +5,10 @@ import { Subject } from 'rxjs/Subject';
 import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { OrganizationService } from './organization.service';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { ToastService } from './toast.service.js';
 
 
 @Injectable({
@@ -43,7 +43,7 @@ export class BrightspaceService implements CanActivate {
               private iab: InAppBrowser,
               private http: HttpClient,
               private navCtrl: NavController,
-              private orgService: OrganizationService,
+              private toastService: ToastService,
               private splashScreen: SplashScreen) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
@@ -105,24 +105,27 @@ export class BrightspaceService implements CanActivate {
    * Should only be called on welcome-slide.
    */
   login() {
-    const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
-      location: 'no',
-      zoom: 'no',
-      clearsessioncache: 'yes'
-    });
-    browser.on('loadstart').subscribe(
-      data => {
-        const url = data.url;
-        if (url.indexOf('&x_c=') !== -1) {
-          const params = ((url).split('?')[1]).split('&');
-          this.setUserID(params[0].split('=')[1]);
-          this.setUserKey(params[1].split('=')[1]);
-          this.setSessionSkew(Util.calculateSkew(url));
-          this.redirectedURL = url;
-          browser.hide();
-          this.createUserContext(true);
-        }
-      });
+    this.setTestIdKey();
+    this.createUserContext(true);
+
+    // const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
+    //   location: 'no',
+    //   zoom: 'no',
+    //   clearsessioncache: 'yes',
+    // });
+    // browser.on('loadstart').subscribe(
+    //   data => {
+    //     const url = data.url;
+    //     if (url.indexOf('&x_c=') !== -1) {
+    //       const params = ((url).split('?')[1]).split('&');
+    //       this.setUserID(params[0].split('=')[1]);
+    //       this.setUserKey(params[1].split('=')[1]);
+    //       this.setSessionSkew(Util.calculateSkew(url));
+    //       this.redirectedURL = url;
+    //       browser.hide();
+    //       this.createUserContext(true);
+    //     }
+    //   });
   }
 
   /**
@@ -147,6 +150,13 @@ export class BrightspaceService implements CanActivate {
     this.userID = userID;
     console.log('setting userid to:' + this.userID);
     this.userIDSubject.next('New UserID');
+  }
+
+  setTestIdKey() {
+    this.setUserID(PARAMS.Session.userID);
+    this.setUserKey(PARAMS.Session.userKey);
+    this.redirectedURL = PARAMS.Session.CallBackURLWithParams;
+    this.setSessionSkew(this.calcSkew());
   }
 
   /**
@@ -191,23 +201,23 @@ export class BrightspaceService implements CanActivate {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
     console.log('Testingg if current userContext is Valid: Getting response from:' + url);
     await this.http.get('https://' + url).subscribe((response) => {
-      this.orgService.updateNameOnPages(JSON.stringify(response));
+      this.toastService.updateNameOnPages(JSON.stringify(response));
       console.log('Session Valid');
       this.authenticated = true;
       this.navCtrl.navigateRoot('/home');
       if (userLogin) {
-        this.orgService.showNormalToast('You are logged in.');
+        this.toastService.showNormalToast('You are logged in.');
       }
       this.splashScreen.hide();
     },
     (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.authenticated = false;
-        this.orgService.showWarningToast('Session info Expired. Please Sign in again.');
+        this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
         this.logout(0);
       }
       if (error.status === 0) {
-        this.orgService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
       }
     });
   }
@@ -238,7 +248,7 @@ export class BrightspaceService implements CanActivate {
     this.setUserID(null);
     this.authenticated = false;
     if (cause === 1) {
-      this.orgService.showNormalToast('You are logged out.');
+      this.toastService.showNormalToast('You are logged out.');
     }
     this.navCtrl.navigateRoot('welcome-slide');
 

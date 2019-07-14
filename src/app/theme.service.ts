@@ -14,8 +14,10 @@ export class ThemeService {
 
    setTheme(theme) {
     const cssText = CSSTextGenerator(theme);
-    // this.statusBar.styleBlackTranslucent();
+    this.statusBar.styleBlackTranslucent();
+    this.statusBar.show();
     this.statusBar.backgroundColorByHexString(theme.secondary);
+    // this.statusBar.backgroundColorByHexString('#30'+theme.secondary.substring(1));
     this.setGlobalCSS(cssText);
    }
    // Define a single CSS variable
@@ -24,7 +26,6 @@ export class ThemeService {
    }
   setGlobalCSS(css: string) {
     this.document.documentElement.style.cssText = css;
-
   }
 }
 

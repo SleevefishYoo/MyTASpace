@@ -75,11 +75,6 @@ export class OrganizationService {
     this.gradingUsersFilteredSubject.next('List updated');
   }
 
-  updateNameOnPages(jsonResponse: string) {
-    this.userFirstName = JSON.parse(jsonResponse).FirstName;
-    this.userFirstNameSubject.next('new user Name');
-  }
-
   updateSideMenu(jsonResponse) {
     this.sideMenuItems = [];
     const courses = JSON.parse(jsonResponse).Items;
@@ -98,6 +93,7 @@ export class OrganizationService {
     }
     this.sideMenuSubject.next('new Menu Items.');
   }
+
   updateGradeItems(courseID: number) {
     // TODO: Actually Requesting ITEMS instead of fooling yourself. sample response is used
     this.gradeItems = [];

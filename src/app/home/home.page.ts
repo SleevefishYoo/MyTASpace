@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrganizationService } from '../organization.service';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 
 @Component({
@@ -10,10 +11,12 @@ import { OrganizationService } from '../organization.service';
 export class HomePage {
   userFirstName = '';
   constructor(
-    private orgService: OrganizationService) {
+    private orgService: OrganizationService,
+    private statusBar: StatusBar) {
       this.orgService.userFirstNameSubject.subscribe(() =>{
         this.userFirstName = orgService.userFirstName;
       });
       this.userFirstName = this.orgService.userFirstName;
+      this.statusBar.show();
   }
 }
