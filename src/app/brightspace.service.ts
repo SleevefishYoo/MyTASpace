@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as PARAMS from './cred.json';
-import {Storage} from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 import { Subject } from 'rxjs/Subject';
-import { ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
+import { ApplicationContext, UserContext, Util } from './Module/valence/lib/valence';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -23,7 +23,7 @@ export class BrightspaceService implements CanActivate {
   private userKey = '';
   private sessionSkew = '';
   public redirectedURL = '';
-  private userIDSubject: Subject<string>  = new Subject<string>();
+  private userIDSubject: Subject<string> = new Subject<string>();
   private userKeySubject: Subject<string> = new Subject<string>();
   private sessionSkewSubject: Subject<string> = new Subject<string>();
   public userFirstName = '';
@@ -45,13 +45,13 @@ export class BrightspaceService implements CanActivate {
    *    Functions please.
    */
   constructor(private storage: Storage,
-              private iab: InAppBrowser,
-              private http: HttpClient,
-              private nhttp: HTTP,
-              private navCtrl: NavController,
-              private toastService: ToastService,
-              private splashScreen: SplashScreen,
-              private keyboard: Keyboard) {
+    private iab: InAppBrowser,
+    private http: HttpClient,
+    private nhttp: HTTP,
+    private navCtrl: NavController,
+    private toastService: ToastService,
+    private splashScreen: SplashScreen,
+    private keyboard: Keyboard) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
 
@@ -85,7 +85,7 @@ export class BrightspaceService implements CanActivate {
   async updateSideMenu() {
     let jsonResponse = '';
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
-    await this.nhttp.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
+    await this.nhttp.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
       jsonResponse = data.data;
       console.log(data.data);
     }, (err: HTTPResponse) => {
@@ -107,15 +107,7 @@ export class BrightspaceService implements CanActivate {
 
     for (const course of courses) {
       if (course.OrgUnit.Type.Id !== 3 || (course.Access.ClasslistRoleName !== 'TA' && course.Access.ClasslistRoleName !== 'Instructor')) { continue; }
-      if (course.OrgUnit.Name.includes('CP')) {
-        cc = 'laptop';
-      } else if (course.OrgUnit.Name.includes('MA')) {
-        cc = 'calculator';
-      } else if (course.OrgUnit.Name.includes('PC')) {
-        cc = 'magnet';
-      } else {
-        cc = 'desktop';
-      }
+      if (course.OrgUnit.Name.includes('CP')) { cc = 'laptop'; } else if (course.OrgUnit.Name.includes('EC')) { cc = 'cash'; } else if (course.OrgUnit.Name.includes('BU')) { cc = 'briefcase'; } else if (course.OrgUnit.Name.includes('BBA')) { cc = 'briefcase'; } else if (course.OrgUnit.Name.includes('MA')) { cc = 'calculator'; } else if (course.OrgUnit.Name.includes('Mathmatics')) { cc = 'calculator'; } else if (course.OrgUnit.Name.includes('PC')) { cc = 'laptop'; } else if (course.OrgUnit.Name.includes('Clicker')) { cc = 'keypad'; } else { cc = 'apps'; }
 
       this.sideMenuItems.push({
         Name: course.OrgUnit.Name,
@@ -246,7 +238,7 @@ export class BrightspaceService implements CanActivate {
    */
   public isUserContextCreatable(): boolean {
     return this.userID !== '' && this.userKey !== '' && this.sessionSkew !== ''
-    && this.userID != null && this.userKey != null && this.sessionSkew != null;
+      && this.userID != null && this.userKey != null && this.sessionSkew != null;
   }
 
   /**
@@ -271,16 +263,16 @@ export class BrightspaceService implements CanActivate {
       }
       this.splashScreen.hide();
     },
-    (error: HttpErrorResponse) => {
-      if (error.status === 403) {
-        this.authenticated = false;
-        this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
-        this.logout(0);
-      }
-      if (error.status === 0) {
-        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
-      }
-    });
+      (error: HttpErrorResponse) => {
+        if (error.status === 403) {
+          this.authenticated = false;
+          this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
+          this.logout(0);
+        }
+        if (error.status === 0) {
+          this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+        }
+      });
   }
 
 
