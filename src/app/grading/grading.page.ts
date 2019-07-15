@@ -35,7 +35,7 @@ export class GradingPage implements OnInit {
     this.allowExceed = this.activatedRoute.snapshot.paramMap.get('allowExceed') === 'true';
     console.log('course: ' + this.courseID + '; gradeItemID: ' + this.gradeItemID + '; allowExceed: ' + this.allowExceed);
     this.orgService.updateGradingPage(this.courseID, this.gradeItemID);
-    this.searching = false;
+    this.http.setDataSerializer('json');
   }
 
   onSearchInput() {
@@ -196,7 +196,7 @@ export class GradingPage implements OnInit {
     if (this.searchTerm === '') {
       return;
     }
-    this.gradeChangePrompt(this.gradingUsers[0].WLUID);
+    this.gradeChangePrompt(this.gradingUsers[0].Identifier);
     this.searchTerm = '';
   }
 
@@ -222,8 +222,8 @@ export class GradingPage implements OnInit {
     this.http.put('https://' + url, {
       GradeObjectType: '1',
       PointsNumerator: newGrade
-    }, {} ).then(() => {
-      this.toastService.showNormalToast('Grade Updated.');
+    }, {'Content-Type': 'application/json'} ).then(() => {
+      this.toastService.showNormalToast('Grade updated for ' + user.Name + '.');
       this.orgService.updateGradingPage(this.courseID, this.gradeItemID);
     }, (err: HTTPResponse) => {
       if (err.status === 403) {
@@ -231,7 +231,11 @@ export class GradingPage implements OnInit {
       } else if (err.status === 404) {
         this.toastService.showWarningToast('User/course/gradeItem Not found. Please restart the app and try again. If you still get this prompt, contact us.');
       } else if (err.status === 400) {
-        this.toastService.showWarningToast('Grade type mismatch. This app only supports numeric grade values at this moment.');
+        this.toastService.showWarningToast('Grade type mismatch. This app only supports numeric grade values at the moment.');
+        prompt(JSON.stringify(err.headers));
+        prompt(JSON.stringify(err.data));
+        prompt(err.url);
+        prompt(err.error);
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
       }

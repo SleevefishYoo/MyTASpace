@@ -18,6 +18,9 @@
         </ion-menu-toggle>
       </ion-list>
       <ion-item-divider color="light" >Courses</ion-item-divider>
+      <div *ngIf="loading" class="spinner-container" slot=end>
+          <ion-spinner color = "primary"></ion-spinner>
+      </div>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of classList">
           <ion-item [routerDirection]="'root'" [routerLink]="'/list/'+p.courseID+'/'+p.Name" color="light">

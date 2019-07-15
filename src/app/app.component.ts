@@ -34,7 +34,7 @@ export class AppComponent {
   ];
   userFirstName = '';
 
-
+  loading = true;
 
 
   constructor(
@@ -53,6 +53,7 @@ export class AppComponent {
     });
     this.bService.sideMenuSubject.asObservable().subscribe(() => {
       this.classList = this.bService.sideMenuItems;
+      this.loading = false;
     });
     this.classList = this.bService.sideMenuItems;
     this.initializeApp();
