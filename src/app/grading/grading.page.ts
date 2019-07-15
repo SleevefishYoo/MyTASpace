@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { OrganizationService } from '../organization.service';
-import { AlertController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {OrganizationService} from '../organization.service';
+import {AlertController} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
+import {HTTP, HTTPResponse} from '@ionic-native/http/ngx';
+import {BrightspaceService} from '../brightspace.service';
+import {ToastService} from '../toast.service';
 
 @Component({
   selector: 'app-grading',
@@ -10,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GradingPage implements OnInit {
   searching = true;
-  gradingUsers: Array<{ Name; WLUID: string; WLUEmail: string; gradeItemId: string; gradeOutOf: string; currGrade: string }> = [];
+  gradingUsers: Array<{ Name; WLUID: string; Identifier: string; WLUEmail: string; gradeItemId: string; gradeOutOf: string; currGrade: string }> = [];
   searchTerm: any;
   courseID = null;
   gradeItemID = null;
@@ -20,9 +23,12 @@ export class GradingPage implements OnInit {
   constructor(
     private orgService: OrganizationService,
     private alertController: AlertController,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastService: ToastService,
+    private http: HTTP,
+    private bService: BrightspaceService,
   ) {
-    this.gradingUsers = orgService.gradingUsersFiltered;
+    this.gradingUsers = [];
     this.courseID = this.activatedRoute.snapshot.paramMap.get('courseID');
     this.gradeItemID = this.activatedRoute.snapshot.paramMap.get('gradeItemID');
     this.maxGrade = Number(this.activatedRoute.snapshot.paramMap.get('maxGrade'));
@@ -38,7 +44,6 @@ export class GradingPage implements OnInit {
   }
 
   ngOnInit() {
-    this.gradingUsers = this.orgService.gradingUsersFiltered;
     this.orgService.gradingUsersFilteredSubject.asObservable().subscribe(() => {
       this.gradingUsers = this.orgService.gradingUsersFiltered;
       this.searching = false;
@@ -46,14 +51,13 @@ export class GradingPage implements OnInit {
   }
 
   async doRefresh(event) {
-    console.log('Begin async operation');
     this.searchTerm = '';
     await this.orgService.updateGradingPage(this.courseID, this.gradeItemID);
     event.target.complete();
   }
 
-  async gradeChangePrompt(WLUID: string) {
-    const user = this.gradingUsers.find(x => x.WLUID === WLUID);
+  async gradeChangePrompt(Identifier: string) {
+    const user = this.gradingUsers.find(x => x.Identifier === Identifier);
     const alert = await this.alertController.create({
       header: user.Name,
       message: user.WLUID + ' Current Mark: <strong>' + user.currGrade + '</strong>',
@@ -72,17 +76,16 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => { }
+          handler: () => {
+          }
         }, {
           text: 'Submit',
           handler: (data) => {
-            // TODO: Call function to check if there's mergge conflict&update server with new mark.
-            console.log('Confirm Ok. New Grade: ' + data.newGrade);
             if (this.orgService.validateGradeInput(data.newGrade, this.maxGrade, this.allowExceed)) {
               console.log('Grade passed validation. Attempting to update the mark server-side.');
-              // TODO: try updating the mark to the server.
+              this.updateGrade(Identifier, data.newGrade);
             } else {
-              this.gradeFailedChangePrompt(WLUID);
+              this.gradeFailedChangePrompt(Identifier);
             }
           }
         }
@@ -95,11 +98,11 @@ export class GradingPage implements OnInit {
     });
   }
 
-  async gradeFailedChangePrompt(WLUID: string) {
-    const user = this.gradingUsers.find(x => x.WLUID === WLUID);
+  async gradeFailedChangePrompt(Identifier: string) {
+    const user = this.gradingUsers.find(x => x.Identifier === Identifier);
     const alert = await this.alertController.create({
       header: user.Name,
-      subHeader: 'The value entered is not valid. Please re-enter. \n' ,
+      subHeader: 'The value entered is not valid. Please re-enter. \n',
       message: user.WLUID + '\n Current Mark: <strong>' + user.currGrade + '</strong>',
       cssClass: 'myAlertPrompt',
       inputs: [
@@ -116,7 +119,8 @@ export class GradingPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => { }
+          handler: () => {
+          }
         }, {
           text: 'Submit',
           handler: (data) => {
@@ -124,9 +128,9 @@ export class GradingPage implements OnInit {
             console.log('Confirm Ok. New Grade: ' + data.newGrade);
             if (this.orgService.validateGradeInput(data.newGrade, this.maxGrade, this.allowExceed)) {
               console.log('Grade passed validation. Attempting to update the mark server-side.');
-              // TODO: try updating the mark to the server.
+              this.updateGrade(Identifier, data.newGrade);
             } else {
-              this.gradeFailedChangePrompt(WLUID);
+              this.gradeFailedChangePrompt(Identifier);
             }
           }
         }
@@ -139,9 +143,99 @@ export class GradingPage implements OnInit {
     });
   }
 
+  async mergeConflictPrompt(Identifier: string, gradeOnServer: number, newGrade: string) {
+    const user = this.gradingUsers.find(x => x.Identifier === Identifier);
+    const alert = await this.alertController.create({
+      header: 'Merge Conflict',
+      subHeader: user.Name + '\'s grade was updated on the server after the app have pulled the grades shown on the screen. \nDo you wish to override?',
+      message: 'Mark on the screen: <strong>' + user.currGrade + '</strong>,\n Mark on the server: <strong>' + gradeOnServer + '</strong>,\n Updating to: <strong>' + newGrade,
+      cssClass: 'myAlertPrompt',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            const url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + this.courseID + '/grades/' + this.gradeItemID + '/values/' + Identifier, 'put');
+            this.http.put('https://' + url, {
+              Comments: {
+                Content: '',
+                Type: 'Text'
+              },
+              PrivateComments: {
+                Content: '',
+                Type: 'Text'
+              },
+              GradeObjectType: 1,
+              PointsNumerator: Number(newGrade)
+            }, {} ).then(() => {
+              this.toastService.showNormalToast('Grade Updated.');
+              this.orgService.updateGradingPage(this.courseID, this.gradeItemID);
+            }, (err: HTTPResponse) => {
+              if (err.status === 403) {
+                this.toastService.showWarningToast('Weird. You are not allowed to update the marks of this grade item.');
+                this.bService.validateSession();
+              } else if (err.status === 404) {
+                this.toastService.showWarningToast('User/course/gradeItem Not found. Please restart the app and try again. If you still get this prompt, contact us.');
+              } else {
+                this.toastService.showWarningToast(err.status + ': ' + err.data);
+              }
+            });
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
   gradeFirst() {
-    if (this.searchTerm === '') {return; }
+    if (this.searchTerm === '') {
+      return;
+    }
     this.gradeChangePrompt(this.gradingUsers[0].WLUID);
     this.searchTerm = '';
+  }
+
+  async updateGrade(Identifier: string, newGrade: string) {
+    const user = this.gradingUsers.find(x => x.Identifier === Identifier);
+    const gradeOnScreen = Number(user.currGrade);
+    const gradeOnServerURL = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + this.courseID + '/grades/' + this.gradeItemID + '/values/' + Identifier, 'get');
+    let gradeOnServer = 0;
+    let jsonResponse;
+    await this.http.get('https://' + gradeOnServerURL, {}, {'Content-Type': 'application/json'}).then(data => {
+      jsonResponse = JSON.parse(data.data);
+      gradeOnServer = jsonResponse.PointsNumerator;
+    }, (err: HTTPResponse) => {
+      if (err.status === 403) {
+        this.bService.validateSession();
+      }
+    });
+    if (gradeOnScreen !== gradeOnServer) {
+      this.mergeConflictPrompt(Identifier, gradeOnServer, newGrade);
+      return;
+    }
+    const url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.12/' + this.courseID + '/grades/' + this.gradeItemID + '/values/' + Identifier, 'put');
+    this.http.put('https://' + url, {
+      GradeObjectType: '1',
+      PointsNumerator: newGrade
+    }, {} ).then(() => {
+      this.toastService.showNormalToast('Grade Updated.');
+      this.orgService.updateGradingPage(this.courseID, this.gradeItemID);
+    }, (err: HTTPResponse) => {
+      if (err.status === 403) {
+        this.bService.validateSession();
+      } else if (err.status === 404) {
+        this.toastService.showWarningToast('User/course/gradeItem Not found. Please restart the app and try again. If you still get this prompt, contact us.');
+      } else if (err.status === 400) {
+        this.toastService.showWarningToast('Grade type mismatch. This app only supports numeric grade values at this moment.');
+      } else {
+        this.toastService.showWarningToast(err.status + ': ' + err.data);
+      }
+    });
+
   }
 }

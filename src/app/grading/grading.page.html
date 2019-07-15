@@ -24,7 +24,7 @@
       <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list>
-    <ion-item *ngFor="let item of gradingUsers" (click)="gradeChangePrompt(item.WLUID)">
+    <ion-item *ngFor="let item of gradingUsers" (click)="gradeChangePrompt(item.Identifier)">
       {{item.Name}}
       <div class="item-note" slot="end">
       {{item.currGrade}}/{{this.maxGrade}}

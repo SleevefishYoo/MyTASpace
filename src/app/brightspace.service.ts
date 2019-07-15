@@ -96,7 +96,7 @@ export class BrightspaceService implements CanActivate {
       } else if (err.status === -3) {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
       } else {
-        prompt(err.status + ': ' + err.data);
+        this.toastService.showWarningToast(err.status + ': ' + err.data);
       }
     });
     if (jsonResponse === '') { return; }

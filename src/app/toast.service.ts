@@ -22,7 +22,7 @@ export class ToastService {
   public showWarningToast(userMessage: string) {
     this.toast = this.toastController.create({
       message: '🥺  ' + userMessage,
-      duration: 5000,
+      duration: 3000,
       cssClass: 'warning-toast',
       position: 'top'
     }).then((toastData) => {
