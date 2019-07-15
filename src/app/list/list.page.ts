@@ -35,6 +35,7 @@ export class ListPage implements OnInit {
       this.gradeItemList = this.orgService.gradeItemsMenuItems;
       this.loading = false;
     });
+    this.gradeItemList = this.orgService.gradeItemsMenuItems;
     this.orgService.updateGradeItems(this.courseID);
   }
   async doRefresh(event) {
