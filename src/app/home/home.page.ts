@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { BrightspaceService } from '../brightspace.service';
+import { ThemeService } from '../theme.service';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -12,12 +14,11 @@ export class HomePage {
   userFirstName = '';
   constructor(
     private bService: BrightspaceService,
-    private statusBar: StatusBar,
+    private storage: Storage
     ) {
-      this.bService.userFirstNameSubject.subscribe(() =>{
+      this.bService.userFirstNameSubject.subscribe(() => {
         this.userFirstName = bService.userFirstName;
       });
       this.userFirstName = this.bService.userFirstName;
-      this.statusBar.show();
   }
 }

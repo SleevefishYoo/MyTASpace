@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {BrightspaceService} from '../brightspace.service';
+import { Component, OnInit } from '@angular/core';
+import { BrightspaceService } from '../brightspace.service';
 import * as PARAMS from '../cred.json';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-test',
@@ -12,7 +13,8 @@ export class TestPage implements OnInit {
   log = 'Page Ready.';
 
   constructor(private brightspaceService: BrightspaceService,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private statusBar: StatusBar) {
 
   }
 
@@ -20,7 +22,7 @@ export class TestPage implements OnInit {
   }
 
   getIdKey() {
-    prompt('Userid: ' + this.brightspaceService.getUserKey() + '\n UserKey: ' + this.brightspaceService.getUserID()+'\n Skew: '+this.brightspaceService.getSkew());
+    prompt('Userid: ' + this.brightspaceService.getUserKey() + '\n UserKey: ' + this.brightspaceService.getUserID() + '\n Skew: ' + this.brightspaceService.getSkew());
   }
 
   setIdKey() {
@@ -49,13 +51,13 @@ export class TestPage implements OnInit {
   }
 
   whoAmI() {
-    console.log('Getting response from:' + this.GenerateWhoAMIURL()); 
+    console.log('Getting response from:' + this.GenerateWhoAMIURL());
     this.http.get('https://' + this.GenerateWhoAMIURL()).subscribe((response: UserResponse) => {
       this.log = 'User Unique Name: ' + response.UniqueName;
     },
-    (error: HttpErrorResponse) => {
-      this.log = 'Error Status: ' + error.status + '\nError Text: ' + error.message;
-    });
+      (error: HttpErrorResponse) => {
+        this.log = 'Error Status: ' + error.status + '\nError Text: ' + error.message;
+      });
   }
 
   calcSkew() {
@@ -63,6 +65,9 @@ export class TestPage implements OnInit {
     this.log = this.brightspaceService.redirectedURL;
   }
 
+  statusBarCycle() {
+    if (this.statusBar.isVisible) { this.statusBar.hide(); } else { this.statusBar.show(); }
+  }
 }
 
 interface UserResponse {

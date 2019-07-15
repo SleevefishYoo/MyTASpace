@@ -8,29 +8,6 @@ import { OrganizationService } from './organization.service';
 import { BrightspaceService } from './brightspace.service';
 import { Subscription } from 'rxjs';
 
-
-const themes = {
-
-  default: {
-    primary: '#330572',
-    secondary: '#330572',
-    tertiary: '#f4f5f8',
-    dark: '#222428',
-    medium: '#989aa2',
-    light: '#f4f5f8'
-  },
-
-  dark: {
-    primary: '#FF9900',
-    secondary: '#212121',
-    tertiary: '#FF9900',
-    medium: '#676A6D',
-    dark: '#F7F7FF',
-    light: '#212121'
-  }
-};
-
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -69,7 +46,7 @@ export class AppComponent {
     private theme: ThemeService,
     private storage: Storage,
     private bService: BrightspaceService) {
-    storage.get('theme').then(isDark => {this.theme.setTheme(themes[isDark ? 'dark' : 'default']); });
+    storage.get('theme').then(isDark => {this.theme.setTheme(theme.themes[isDark ? 'dark' : 'default']); });
     bService.validateSession();
     this.bService.userFirstNameSubject.subscribe(() => {
       this.userFirstName = this.bService.userFirstName;
@@ -88,7 +65,8 @@ export class AppComponent {
         // this.statusBar.styleBlackOpaque()
       }
       // this.statusBar.backgroundColorByHexString('#33000000');
-      // this.statusBar.overlaysWebView(false);
+      // this.splashScreen.hide();
+      this.statusBar.overlaysWebView(false);
     });
 
   }

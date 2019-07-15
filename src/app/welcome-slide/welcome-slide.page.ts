@@ -16,7 +16,7 @@ export class WelcomeSlidePage implements OnInit {
               private bService: BrightspaceService,
               private storage: Storage,
               private statusBar: StatusBar) {
-
+                this.statusBar.hide();
   }
 
   sub;
@@ -36,6 +36,7 @@ export class WelcomeSlidePage implements OnInit {
   ionViewDidLeave() {
     this.menuController.enable(true);
     this.sub.unsubscribe();
+    this.statusBar.show();
   }
 
   login() {

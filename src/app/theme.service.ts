@@ -12,12 +12,32 @@ export class ThemeService {
 
    }
 
+   public themes = {
+
+    default: {
+      primary: '#330572',
+      secondary: '#330572',
+      tertiary: '#f4f5f8',
+      dark: '#222428',
+      medium: '#989aa2',
+      light: '#f4f5f8'
+    },
+
+    dark: {
+      primary: '#FF9900',
+      secondary: '#212121',
+      tertiary: '#FF9900',
+      medium: '#676A6D',
+      dark: '#F7F7FF',
+      light: '#212121'
+    }
+  };
+
    setTheme(theme) {
     const cssText = CSSTextGenerator(theme);
     this.statusBar.styleBlackTranslucent();
-    this.statusBar.show();
     this.statusBar.backgroundColorByHexString(theme.secondary);
-    // this.statusBar.backgroundColorByHexString('#30'+theme.secondary.substring(1));
+    // this.statusBar.backgroundColorByHexString('#30'+ theme.secondary.substring(1));
     this.setGlobalCSS(cssText);
    }
    // Define a single CSS variable
@@ -28,6 +48,7 @@ export class ThemeService {
     this.document.documentElement.style.cssText = css;
   }
 }
+
 
 const defaults = {
   primary: '#3880ff',
@@ -56,8 +77,8 @@ function CSSTextGenerator(colors) {
     light
   } = colors;
 
-  const shadeRatio = 0.3;
-  const tintRatio = 0.3;
+  const shadeRatio = 0.2;
+  const tintRatio = 0.2;
 
   return `
     --ion-color-base: ${light};

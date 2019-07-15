@@ -13,13 +13,14 @@ import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({hardwareBackButton: false}),
     HttpClientModule,
     IonicStorageModule.forRoot(),
     AppRoutingModule,
@@ -30,6 +31,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     Camera,
     EmailComposer,
     StatusBar,
+    Keyboard,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser,

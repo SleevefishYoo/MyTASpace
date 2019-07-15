@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ToastService } from './toast.service.js';
 import { HTTPResponse, HTTP } from '@ionic-native/http/ngx';
-
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,8 @@ export class BrightspaceService implements CanActivate {
               private nhttp: HTTP,
               private navCtrl: NavController,
               private toastService: ToastService,
-              private splashScreen: SplashScreen) {
+              private splashScreen: SplashScreen,
+              private keyboard: Keyboard) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
 
@@ -159,27 +160,30 @@ export class BrightspaceService implements CanActivate {
    * Should only be called on welcome-slide.
    */
   login() {
-    this.setTestIdKey();
-    this.createUserContext(true);
+    if (cordova.platformId === 'android') {
+      this.toastService.showNormalToast('If page becomes irresponsive, press back and try again.');
+    }
+    // this.setTestIdKey();
+    // this.createUserContext(true);
 
-    // const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
-    //   location: 'no',
-    //   zoom: 'no',
-    //   clearsessioncache: 'yes',
-    // });
-    // browser.on('loadstart').subscribe(
-    //   data => {
-    //     const url = data.url;
-    //     if (url.indexOf('&x_c=') !== -1) {
-    //       const params = ((url).split('?')[1]).split('&');
-    //       this.setUserID(params[0].split('=')[1]);
-    //       this.setUserKey(params[1].split('=')[1]);
-    //       this.setSessionSkew(Util.calculateSkew(url));
-    //       this.redirectedURL = url;
-    //       browser.hide();
-    //       this.createUserContext(true);
-    //     }
-    //   });
+    const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
+      location: 'no',
+      zoom: 'no',
+      clearsessioncache: 'yes',
+    });
+    browser.on('loadstart').subscribe(
+      data => {
+        const url = data.url;
+        if (url.indexOf('&x_c=') !== -1) {
+          const params = ((url).split('?')[1]).split('&');
+          this.setUserID(params[0].split('=')[1]);
+          this.setUserKey(params[1].split('=')[1]);
+          this.setSessionSkew(Util.calculateSkew(url));
+          this.redirectedURL = url;
+          browser.hide();
+          this.createUserContext(true);
+        }
+      });
   }
 
   /**
@@ -262,6 +266,8 @@ export class BrightspaceService implements CanActivate {
       this.updateSideMenu();
       if (userLogin) {
         this.toastService.showNormalToast('You are logged in.');
+        this.keyboard.show();
+        this.keyboard.hide();
       }
       this.splashScreen.hide();
     },

@@ -11,17 +11,17 @@
 
 
   <ion-list>
-    <ion-item><ion-label><h2>Dark Mode</h2></ion-label>
+    <ion-item color="light"><ion-label><h2>Dark Mode</h2></ion-label>
       <ion-toggle [(ngModel)]="isDarkMode" (ionChange)="darkModeToggle()" slot="end"></ion-toggle>
     </ion-item>
-    <ion-item [routerLink]="'/about'">
+    <ion-item [routerLink]="'/about'" color="light">
     <ion-label ><h2>About</h2></ion-label>
     </ion-item>
 
-    <ion-item [routerLink]="'/contactus'">
+    <ion-item [routerLink]="'/contactus'" color="light">
     <ion-label><h2>Contact Us</h2></ion-label>
     </ion-item>
-    <ion-item [routerLink]="'/test'">
+    <ion-item [routerLink]="'/test'" color="light">
       <ion-label><h2>Brightspace Test</h2></ion-label></ion-item>
   </ion-list>
 
