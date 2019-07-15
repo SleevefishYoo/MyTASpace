@@ -1,8 +1,8 @@
 {
-  "name": "MyTASpace",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "MyTASpaceDEMO",
+  "version": "0.2.1",
+  "author": "MyTASpace Team",
+  "homepage": "https://mydreamfty.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -80,7 +80,8 @@
     "protractor": "~5.4.0",
     "ts-node": "^8.1.1",
     "tslint": "~5.16.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "cordova-plugin-advanced-http": "^2.1.1"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -98,7 +99,10 @@
       "cordova-plugin-email-composer": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "cordova-plugin-advanced-http": {
+        "OKHTTP_VERSION": "3.10.0"
+      }
     },
     "platforms": [
       "ios",
