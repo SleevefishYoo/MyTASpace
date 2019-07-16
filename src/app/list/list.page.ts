@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { containerRefreshEnd } from '@angular/core/src/render3';
 import { ActivatedRoute } from '@angular/router';
 import { OrganizationService } from '../organization.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-list',
@@ -9,26 +9,16 @@ import { OrganizationService } from '../organization.service';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  gradeItemList: Array<{Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean}> = [];
+  gradeItemList: Array<{ Name: string; gradeItemID: string; maxGrade: number; allowExceed: boolean }> = [];
   courseID = 0;
   loading = true;
   courseName = '';
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private orgService: OrganizationService
-    ) {
+    private orgService: OrganizationService,
+    private storage: Storage,
+  ) {
+    this.storage.set('bug_prompted', true);
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('courseID'));
     this.courseName = this.activatedRoute.snapshot.paramMap.get('courseName');
     this.orgService.gradeItemsMenuSubject.asObservable().subscribe(() => {

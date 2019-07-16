@@ -29,23 +29,10 @@ export class OrganizationService {
               private http: HTTP) {
                 this.http.setDataSerializer('json');
               }
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
 
 
   async updateGradingPage(courseID: string, gradeItemID: string) {
     this.gradingUsers = [];
-
     let jsonResponse = '';
     let itemJsonResponse = '';
 
@@ -72,6 +59,7 @@ export class OrganizationService {
     }, (err: HTTPResponse) => {
       if (err.status === 403) {
         this.bService.validateSession();
+      } else if (err.status === -6) {
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
       }

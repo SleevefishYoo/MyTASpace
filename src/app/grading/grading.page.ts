@@ -182,7 +182,7 @@ export class GradingPage implements OnInit {
               } else if (err.status === 404) {
                 this.toastService.showWarningToast('User/course/gradeItem Not found. Please restart the app and try again. If you still get this prompt, contact us.');
               } else {
-                this.toastService.showWarningToast(err.status + ': ' + err.data);
+                this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
               }
             });
           }
@@ -236,10 +236,8 @@ export class GradingPage implements OnInit {
         prompt(JSON.stringify(err.data));
         prompt(err.url);
         prompt(err.error);
-      } else if (err.status=== -6){
+      }  else {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
-      } else {
-        this.toastService.showWarningToast(err.status + ': ' + err.data);
       }
     });
 

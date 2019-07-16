@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ToastService } from './toast.service.js';
 import { HTTPResponse, HTTP } from '@ionic-native/http/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -45,13 +46,14 @@ export class BrightspaceService implements CanActivate {
    *    Functions please.
    */
   constructor(private storage: Storage,
-    private iab: InAppBrowser,
-    private http: HttpClient,
-    private nhttp: HTTP,
-    private navCtrl: NavController,
-    private toastService: ToastService,
-    private splashScreen: SplashScreen,
-    private keyboard: Keyboard) {
+              private iab: InAppBrowser,
+              private http: HttpClient,
+              private nhttp: HTTP,
+              private navCtrl: NavController,
+              private toastService: ToastService,
+              private splashScreen: SplashScreen,
+              private keyboard: Keyboard,
+              private statusBar: StatusBar) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
 
@@ -94,10 +96,8 @@ export class BrightspaceService implements CanActivate {
       } else if (err.status === 403) {
         this.toastService.showWarningToast('You have no permission to see your enrollments.\nContact Us if you think this is wrong.');
         this.validateSession();
-      } else if (err.status === -6) {
-        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
-      } else {
-        this.toastService.showWarningToast(err.status + ': ' + err.data);
+      }  else {
+        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
       }
     });
     if (jsonResponse === '') { return; }
@@ -159,9 +159,14 @@ export class BrightspaceService implements CanActivate {
     // this.createUserContext(true);
 
     const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
-      location: 'no',
+      // location: 'no',
       zoom: 'no',
       clearsessioncache: 'yes',
+      toolbartranslucent: 'yes',
+      // hideurlbar: 'yes',
+      closebuttoncaption: 'Cancel',
+      toolbarcolor: '#330572',
+      navigationbuttoncolor: '#ffffff'
     });
     browser.on('loadstart').subscribe(
       data => {
@@ -172,7 +177,7 @@ export class BrightspaceService implements CanActivate {
           this.setUserKey(params[1].split('=')[1]);
           this.setSessionSkew(Util.calculateSkew(url));
           this.redirectedURL = url;
-          browser.hide();
+          browser.close();
           this.createUserContext(true);
         }
       });
@@ -258,9 +263,9 @@ export class BrightspaceService implements CanActivate {
       this.updateSideMenu();
       if (userLogin) {
         this.toastService.showNormalToast('You are logged in.');
-        this.keyboard.show();
         this.keyboard.hide();
       }
+      this.statusBar.show();
       this.splashScreen.hide();
     },
       (error: HttpErrorResponse) => {
@@ -268,14 +273,11 @@ export class BrightspaceService implements CanActivate {
           this.authenticated = false;
           this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
           this.logout(0);
-        }
-        if (error.status === 0) {
+        } else {
           this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
-        }
-
-        if (error.status=== -6){
-          this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+          this.authenticated = true;
           this.navCtrl.navigateRoot('/home');
+          this.statusBar.show();
         }
       });
   }

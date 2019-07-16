@@ -3,6 +3,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { BrightspaceService } from '../brightspace.service';
 import { ThemeService } from '../theme.service';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -14,11 +15,14 @@ export class HomePage {
   userFirstName = '';
   constructor(
     private bService: BrightspaceService,
-    private storage: Storage
-    ) {
-      this.bService.userFirstNameSubject.subscribe(() => {
-        this.userFirstName = bService.userFirstName;
-      });
-      this.userFirstName = this.bService.userFirstName;
+  ) {
+    this.bService.userFirstNameSubject.subscribe(() => {
+      this.userFirstName = bService.userFirstName;
+    });
+    this.userFirstName = this.bService.userFirstName;
+  }
+
+  ionViewDidEnter() {
+
   }
 }
