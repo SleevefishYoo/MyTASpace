@@ -36,6 +36,7 @@ export class WelcomeSlidePage implements OnInit {
   ionViewDidLeave() {
     this.menuController.enable(true);
     this.sub.unsubscribe();
+    this.statusBar.show();
   }
 
   login() {

@@ -261,11 +261,12 @@ export class BrightspaceService implements CanActivate {
       this.navCtrl.navigateRoot('/home');
       this.updateNameOnPages(JSON.stringify(response));
       this.updateSideMenu();
+      this.statusBar.show();
       if (userLogin) {
         this.toastService.showNormalToast('You are logged in.');
-        this.keyboard.hide();
       }
-      this.statusBar.show();
+      this.keyboard.show();
+      this.keyboard.hide();
       this.splashScreen.hide();
     },
       (error: HttpErrorResponse) => {
