@@ -94,7 +94,7 @@ export class BrightspaceService implements CanActivate {
       } else if (err.status === 403) {
         this.toastService.showWarningToast('You have no permission to see your enrollments.\nContact Us if you think this is wrong.');
         this.validateSession();
-      } else if (err.status === -3) {
+      } else if (err.status === -6) {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
@@ -271,6 +271,11 @@ export class BrightspaceService implements CanActivate {
         }
         if (error.status === 0) {
           this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+        }
+
+        if (error.status=== -6){
+          this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+          this.navCtrl.navigateRoot('/home');
         }
       });
   }

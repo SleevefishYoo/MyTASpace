@@ -236,6 +236,8 @@ export class GradingPage implements OnInit {
         prompt(JSON.stringify(err.data));
         prompt(err.url);
         prompt(err.error);
+      } else if (err.status=== -6){
+        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
       }

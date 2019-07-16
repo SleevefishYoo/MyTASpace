@@ -60,7 +60,7 @@ export class OrganizationService {
       } else if (err.status === 403) {
         this.toastService.showWarningToast('You have no permission to see grade values of this item.\nContact Us if you think this is wrong.');
         this.bService.validateSession();
-      } else if (err.status === -3) {
+      } else if (err.status === -6) {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
@@ -114,7 +114,7 @@ export class OrganizationService {
         this.toastService.showWarningToast('You have no permission to list grade items of this course.\n' +
                                             'Contact Us if you think this is wrong.');
         this.bService.validateSession();
-      } else if (err.status === -3) {
+      } else if (err.status === -6) {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
       } else {
         this.toastService.showWarningToast(err.status + ': ' + err.data);
