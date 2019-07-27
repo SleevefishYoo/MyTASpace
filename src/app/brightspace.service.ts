@@ -33,7 +33,7 @@ export class BrightspaceService implements CanActivate {
   public sideMenuSubject: Subject<string> = new Subject<string>();
 
 
-  private CALLBACK_PARAM = 'https://apitesttool.desire2learnvalence.com/';
+  private CALLBACK_PARAM = PARAMS.Brightspace.Callback;
   public authenticated = false;
   private appContext: ApplicationContext;
   public userContext: UserContext;
