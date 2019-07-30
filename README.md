@@ -1,22 +1,34 @@
 # LaurierCP317MyTASpace<br/>
 Laurier CP317 Spring 2019 MyTASpace<br/>
-MyLearningSpace marking made easy.<br/>
-Project uses [Ionic Framework](https://ionicframework.com)
-Project are maintained for iOS and Android only. 
+This is an app built for changing grades on MyLearningSpace, the learning management system used by Wilfrid Laurier University on your phone.<br/>
+Project uses [Ionic Framework](https://ionicframework.com)<br/>
+Project is maintained for iOS and Android only. 
 ***
 
-## Usage
+## Environment Setup
+[Git](https://git-scm.com/downloads) - You are here. I'd assume you know what Git is.</br>
 
-Install Ionic CLI and Cordova CLI:
+[Node.js 10.16.0 LTS](https://nodejs.org/en/) - This is requested by Ionic CLI and the underlying structure of this project.</br>
+```shell
+# determine node version
+node --version
+```
+[Visual Studio Code](https://code.visualstudio.com/) (recommanded) or any other IDE for web development.
+
+We found VSCode to be the best fit for this project despite its lack of plugins for `Cordova`, one of the underlying framework of the project. Then again we are just doing generic web development so it's good enough. You have all the options from `WebStorm` to `Notepad++`.
+
+You will also need to install Ionic CLI and Cordova CLI:
 ```shell
 npm install -g ionic
 npm install -g cordova
 ```
 If installation fail, try sudoing.
 
-Also, make sure you have appropriate `Android Studio` or `XCode` installed on your machine for Android or iOS building.
+Also, make sure you have `Android Studio` or `XCode` installed on your machine for Android or iOS building respectively.
 
-First, clone a copy of this repo:
+## Usage
+
+First, get a copy of this repo:
 
 ```shell
 git clone https://github.com/SleevefishYoo/LaurierCP317MyTASpace.git
@@ -33,28 +45,31 @@ npm i
 while the packages are being added to the project folder, create a new file called `cred.json` under folder `src/app/` with the following format:
 ```json
 {
-    "Brightspace": { // used by master branch for actual login
-        "appID": "", // your app ID acquired from your Admin or D2L
-        "appKey": "", // your app key
-        "Host": "", // the address of your target Brightspace instance without "http(s)://" at the front (e.g. "devcop.brightspace.com")
-        "Callback" : "" // the callback url you provided when requesting ID and Key
+    "Brightspace": { 
+        "appID": "your app ID acquired from your Admin or D2L",
+        "appKey": "your app key", 
+        "Host": "the address of your target Brightspace instance without 'http(s)://' at the front (e.g. 'devcop.brightspace.com')",
+        "Callback" : "the callback url you provided when requesting ID and Key"
     }, 
-    "Session": { // Optional. used for DemoAPP branch to login directly without needing to type in username and password.
-        "userID": "", // userID the LMS instance provided when redirecting you to the callback URL
-        "userKey": "", //userKey the LMS instance provided when redirecting you to the callback URL
-        "CallBackURLWithParams": "", //the URL LMS redirected you to after successful login
-        "skew": "0" // haven't seen any value other than 0, from the docs, this is the number indicating the time difference between your app and the target LNS instance. Chnage this number accordingly.
+    "Session": {
+        "userID": "userID the LMS instance provided when redirecting you to the callback URL", 
+        "userKey": "userKey the LMS instance provided when redirecting you to the callback URL",
+        "CallBackURLWithParams": "the URL LMS redirected you to after successful login", 
+        "skew": "haven't seen any value other than 0. From the docs, this is the number indicating the time difference between your app and the target LNS instance. Chnage this number accordingly."
     }
 }
 ```
-By now your `npm i` should have finised installing packages. You are ready to make changes and your IDE's IntelliSense or whatever should start working normally.
+
+In which `"Brightspace"` is used by master branch for actual login, and `"Session"` is optional. It is used for DemoAPP branch to login directly without needing to type in username and password.
+
+By now your `npm i` should have finished running. If there's no errors, you are ready to make changes and your IDE's IntelliSense or whatever should start working normally.
 ***
 ## Building & running
 
-Since `Cordova/inappbrowser` is not available in browser so login flow could not be completed, rendering `Live Preview` useless for master branch. Only test master branch on emulator or physical devices.
+Since `Cordova/inappbrowser` is not available in browser so login flow could not be completed, rendering `Live Preview` useless for `master` branch. Only test `master`  on a emulator or a physical device.
 
 ### Live Preview
-Make sure your `cred.json` is filled out correctly, then open up a terminal, `cd` to project root, then run:
+Make sure your `src/app/cred.json` is filled out correctly, then open up a terminal, `cd` to project root, then run:
 ```shell
 ionic serve
 ```
@@ -65,7 +80,7 @@ This is a `Live preview`, which means that not all function works inside the bro
 Code changes are reflected in the `live preview` when `Ionic CLI` detects any file change in the project directory. So every time you change and then save a file, your `live preview` should refresh with new changes applied automatically.
 ### Emulators and physical devices
 #### Android
-First, make sure you have your Android Studio setup currectly with SDK installed for Android O and `platform-tools` installed and added to your `PATH`. 
+First, make sure you have your Android Studio setup currectly with SDK for `Android O`, `platform-tools` installed and added to your `PATH`. 
 
 To verify your `platform-tools`, open a terminal window and type `adb devices`. If this shows up:
 ```shell
@@ -100,17 +115,17 @@ Then click on `run` at the top left of the XCode window.
 
 ### Function Extensibility
 
-The app's code is pretty moldular, so adding new function should be quite easy. Brightspace and login-related code are in `Brightspace Service`, Updating arrays, pages and stuff are in `Organization Service`, Button presses are handled in individual page's ts files. 
+The app's code is pretty moldular, so adding new function should be quite easy. Brightspace and login-related code are in `Brightspace Service`, Updating displayed lists, pages and stuff are in `Organization Service`, Button presses are handled in individual page's ts files. 
 
 **We would happily take PRs.**
 
-**Sorry but we are not able to provide any App ID and Key. Ask us for how to get one.**
+**Sorry but we are not able to provide any App ID and Key, even for testing propuses. Ask us about how to get one.**
 
 ### Platform Extensibility
-Since the app uses Ionic which uses Cordova, this app could potentially run on a lot of platforms that we do not officially support such as `MacOS`, `Windows`, even as `Electron` app. 
+Since the app uses Ionic which uses Cordova, this app could theoritically run on a lot of platforms that we do not officially support such as `MacOS`, `Windows`, even as `Electron` app. 
 
-But not without hiccups. In our testing, the main plugin we uses in our login flow, `Cordova/inappbrowser`, does not work under MacOS, Works differently in Electron in a way that prevents us to grab the session information form the callback URL, The app flat-out won't open in Windows. The inconsistancy of these plugins' behaviour on different platforms are the main reasons we **do not** officially support these platforms right now.
+But not without hiccups. In our testing, the main plugin we uses in our login flow, `Cordova/inappbrowser`, does not work under `MacOS`, Works differently in `Electron` in a way that prevents us to grab the session information form the callback URL, The app flat-out won't open on `Windows`. The inconsistancy of these plugins' behaviour on different platforms is the main reason we **do not** officially support these platforms right now.
 
-On the other hand, all other plugins works exactly the same under these platfoms. So we are not ruling out the possibilities to support those platforms in the future because, I could be astronomically wrong, but adapting these code to one of those platforms showld require a lot less effort than to develop an app on that platform from the beginning.
+On the other hand, most of other plugins works exactly the same under these platforms. So we are not ruling out the possibilities to support those platforms in the future because, I could be astronomically wrong, but adapting current code to one of those platforms showld require a lot less effort than to develop an app on that platform from the ground up.
 
-**Currently, we are not planning on expanding our support to any other platform. We can happyly take any PR but our code is not optimized for that. You have been warned.**
+**Currently, we are not planning on expanding our support to any other platform. We would happily take any PR but our code is not optimized for that. You have been warned.**

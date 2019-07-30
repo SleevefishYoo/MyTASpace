@@ -27,10 +27,14 @@ export class OrganizationService {
   constructor(private bService: BrightspaceService,
               private toastService: ToastService,
               private http: HTTP) {
-                this.http.setDataSerializer('json');
-              }
+    this.http.setDataSerializer('json');
+  }
 
-
+  /**
+   * Called when user enters Grading page from List page or refreshes the Grading page
+   * @param courseID courseID
+   * @param gradeItemID grade item ID
+   */
   async updateGradingPage(courseID: string, gradeItemID: string) {
     this.gradingUsers = [];
     let jsonResponse = '';
@@ -87,9 +91,11 @@ export class OrganizationService {
     return;
   }
 
-
+  /**
+   * Called when user enters the List page
+   * @param courseID course ID
+   */
   async updateGradeItems(courseID: number) {
-    // TODO: Actually Requesting ITEMS instead of fooling yourself. sample response is used
     this.gradeItems = [];
     let jsonResponse = '';
     const url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + courseID + '/grades/', 'get');
@@ -249,7 +255,6 @@ export class OrganizationService {
   }
 
   validateGradeInput(newGrade: string, maxGrade: number, canExceed: boolean): boolean {
-
     if (newGrade === '' || !isNumeric(newGrade)) { return false; }
     if (!canExceed && Number(newGrade) > maxGrade) { return false; }
     return Number(newGrade) >= 0;

@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as PARAMS from './cred.json';
-import { Storage } from '@ionic/storage';
-import { Subject } from 'rxjs/Subject';
-import { ApplicationContext, UserContext, Util } from './Module/valence/lib/valence';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { ToastService } from './toast.service.js';
-import { HTTPResponse, HTTP } from '@ionic-native/http/ngx';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Storage} from '@ionic/storage';
+import {Subject} from 'rxjs/Subject';
+import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {CanActivate, ActivatedRouteSnapshot} from '@angular/router';
+import {NavController} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {ToastService} from './toast.service.js';
+import {HTTPResponse, HTTP} from '@ionic-native/http/ngx';
+import {Keyboard} from '@ionic-native/keyboard/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -87,7 +87,7 @@ export class BrightspaceService implements CanActivate {
   async updateSideMenu() {
     let jsonResponse = '';
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
-    await this.nhttp.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
+    await this.nhttp.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
       jsonResponse = data.data;
       console.log(data.data);
     }, (err: HTTPResponse) => {
@@ -96,33 +96,58 @@ export class BrightspaceService implements CanActivate {
       } else if (err.status === 403) {
         this.toastService.showWarningToast('You have no permission to see your enrollments.\nContact Us if you think this is wrong.');
         this.validateSession();
-      }  else {
+      } else {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
       }
     });
-    if (jsonResponse === '') { return; }
+    if (jsonResponse === '') {
+      return;
+    }
     this.sideMenuItems = [];
     const courses = JSON.parse(jsonResponse).Items;
-    let cc = '';
+    let thisIcon = '';
 
     for (const course of courses) {
-      if (course.OrgUnit.Type.Id !== 3 || (course.Access.ClasslistRoleName !== 'TA' && course.Access.ClasslistRoleName !== 'Instructor')) { continue; }
-      if (course.OrgUnit.Name.includes('CP')) { cc = 'laptop'; } else if (course.OrgUnit.Name.includes('EC')) { cc = 'cash'; } else if (course.OrgUnit.Name.includes('BU')) { cc = 'briefcase'; } else if (course.OrgUnit.Name.includes('BBA')) { cc = 'briefcase'; } else if (course.OrgUnit.Name.includes('MA')) { cc = 'calculator'; } else if (course.OrgUnit.Name.includes('Mathmatics')) { cc = 'calculator'; } else if (course.OrgUnit.Name.includes('PC')) { cc = 'laptop'; } else if (course.OrgUnit.Name.includes('Clicker')) { cc = 'keypad'; } else { cc = 'apps'; }
+      if (course.OrgUnit.Type.Id !== 3 || (course.Access.ClasslistRoleName !== 'TA' && course.Access.ClasslistRoleName !== 'Instructor')) {
+        continue;
+      }
+      if (course.OrgUnit.Name.includes('CP')) {
+        thisIcon = 'laptop';
+      } else if (course.OrgUnit.Name.includes('EC')) {
+        thisIcon = 'cash';
+      } else if (course.OrgUnit.Name.includes('BU')) {
+        thisIcon = 'briefcase';
+      } else if (course.OrgUnit.Name.includes('BBA')) {
+        thisIcon = 'briefcase';
+      } else if (course.OrgUnit.Name.includes('MA')) {
+        thisIcon = 'calculator';
+      } else if (course.OrgUnit.Name.includes('Mathematics')) {
+        thisIcon = 'calculator';
+      } else if (course.OrgUnit.Name.includes('PC')) {
+        thisIcon = 'laptop';
+      } else if (course.OrgUnit.Name.includes('Clicker')) {
+        thisIcon = 'keypad';
+      } else {
+        thisIcon = 'apps';
+      }
 
       this.sideMenuItems.push({
         Name: course.OrgUnit.Name,
         courseID: course.OrgUnit.Id,
-        icon: cc
+        icon: thisIcon
       });
     }
     this.sideMenuSubject.next('new Menu Items.');
   }
 
 
-
+  /*
+   * Auth Guard Implementation
+   */
   canActivate(route: ActivatedRouteSnapshot): boolean {
     return this.authenticated;
   }
+
   /**
    * Get Current userID
    */
@@ -146,24 +171,16 @@ export class BrightspaceService implements CanActivate {
 
   /**
    * Create a Authentication url, then open up a browser page and listen for a valid session key in the url.
-   * The funcion will return, create a new userContext and lead user to the main page when user log in successfully,
+   * The function will return, create a new userContext and lead user to the main page when user log in successfully,
    * will return and remain on current page if user decides to go back.
    *
    * Should only be called on welcome-slide.
    */
   login() {
-    if (cordova.platformId === 'android') {
-      this.toastService.showNormalToast('If page becomes irresponsive, press back and try again.');
-    }
-    // this.setTestIdKey();
-    // this.createUserContext(true);
-
     const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
-      // location: 'no',
       zoom: 'no',
       clearsessioncache: 'yes',
       toolbartranslucent: 'yes',
-      // hideurlbar: 'yes',
       closebuttoncaption: 'Cancel',
       toolbarcolor: '#330572',
       navigationbuttoncolor: '#ffffff'
@@ -254,21 +271,21 @@ export class BrightspaceService implements CanActivate {
    */
   public async validateSession(userLogin = false) {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
-    console.log('Testingg if current userContext is Valid: Getting response from:' + url);
+    console.log('Testing if current userContext is Valid: Getting response from:' + url);
     await this.http.get('https://' + url).subscribe((response) => {
-      console.log('Session Valid');
-      this.authenticated = true;
-      this.navCtrl.navigateRoot('/home');
-      this.updateNameOnPages(JSON.stringify(response));
-      this.updateSideMenu();
-      this.statusBar.show();
-      if (userLogin) {
-        this.toastService.showNormalToast('You are logged in.');
-      }
-      this.keyboard.show();
-      this.keyboard.hide();
-      this.splashScreen.hide();
-    },
+        console.log('Session Valid');
+        this.authenticated = true;
+        this.navCtrl.navigateRoot('/home');
+        this.updateNameOnPages(JSON.stringify(response));
+        this.updateSideMenu();
+        this.statusBar.show();
+        if (userLogin) {
+          this.toastService.showNormalToast('You are logged in.');
+        }
+        this.keyboard.show();
+        this.keyboard.hide();
+        this.splashScreen.hide();
+      },
       (error: HttpErrorResponse) => {
         if (error.status === 403) {
           this.authenticated = false;
@@ -282,7 +299,6 @@ export class BrightspaceService implements CanActivate {
         }
       });
   }
-
 
 
   /**
