@@ -1,12 +1,14 @@
-# LaurierCP317MyTASpace<br/>
+![](logo.svg)
+
+# Laurier CP317 MyTASpace <br/>
 Laurier CP317 Spring 2019 MyTASpace<br/>
 This is an app built for changing grades on MyLearningSpace, the learning management system used by Wilfrid Laurier University on your phone.<br/>
-Project uses [Ionic Framework](https://ionicframework.com)<br/>
+Project uses [Ionic Framework](https://ionicframework.com).<br/>
 Project is maintained for iOS and Android only. 
 ***
 
 ## Environment Setup
-[Git](https://git-scm.com/downloads) - You are here. I'd assume you know what Git is.</br>
+[Git](https://git-scm.com/downloads) - You are on Github. I'd assume you know what Git is.</br>
 
 [Node.js 10.16.0 LTS](https://nodejs.org/en/) - This is requested by Ionic CLI and the underlying structure of this project.</br>
 ```shell
@@ -108,7 +110,7 @@ ionic cordova build ios
 
 Once the command has finished, head to `platforms/ios/`, open `MyTASpace.xcodeproj`.
 
-Then click on `run` at the top left of the XCode window.
+Then click on the <button class = "markdown-button" type="introbutton">▶</button> at the top left of the XCode window.
 
 ***
 ## Extensibility

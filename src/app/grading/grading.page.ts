@@ -231,11 +231,12 @@ export class GradingPage implements OnInit {
       } else if (err.status === 404) {
         this.toastService.showWarningToast('User/course/gradeItem Not found. Please restart the app and try again. If you still get this prompt, contact us.');
       } else if (err.status === 400) {
-        this.toastService.showWarningToast('Grade type mismatch. This app only supports numeric grade values at the moment.');
-        prompt(JSON.stringify(err.headers));
-        prompt(JSON.stringify(err.data));
-        prompt(err.url);
-        prompt(err.error);
+        this.toastService.showWarningToast('Grade type mismatch. This app only supports numeric grade type at the moment. ');
+        prompt("Hey. Sorry to bother you again.\nWe do not currently support grade types other than numeric. \nIf you would like us to support grade types other than numeric, please send us a email using contact info in the Contact Us page in Settings and describe how often do you encounter/set up grade types that are not numeric.");
+        // prompt(JSON.stringify(err.headers));
+        // prompt(JSON.stringify(err.data));
+        // prompt(err.url);
+        // prompt(err.error);
       }  else {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
       }

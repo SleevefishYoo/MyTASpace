@@ -35,7 +35,7 @@ export class AppComponent {
   userFirstName = '';
 
   loading = true;
-  public bug_prompted = false;
+  public bugPrompted = false;
 
 
   constructor(
@@ -50,8 +50,8 @@ export class AppComponent {
     private bService: BrightspaceService) {
     storage.get('theme').then(isDark => {this.theme.setTheme(theme.themes[isDark ? 'dark' : 'default']); });
     bService.validateSession();
-    this.storage.get('bug_prompted').then((bug_prompted) => {
-      this.bug_prompted = bug_prompted;
+    this.storage.get('bug_prompted').then((bugPrompted) => {
+      this.bugPrompted = bugPrompted;
     });
     this.bService.userFirstNameSubject.subscribe(() => {
       this.userFirstName = this.bService.userFirstName;
@@ -79,11 +79,34 @@ export class AppComponent {
   }
 
 
+  async rolePrompt() {
+    let alert = await this.alertController.create({
+      header: 'Oh No!',
+      subHeader: 'Looks like your courses have gone for a walk.',
+      message: 'This app would only display courses of which you are an IA/TA/Instructor.',
+      cssClass: 'myNormalPrompt',
+      buttons: [
+        {
+          text: 'Gotcha!',
+          role: 'cancel',
+        },
+        {
+          text: 'But I am an IA/TA/Instructor',
+          handler: () => {
+            this.bugPrompt();
+          }
+        },
+      ]
+    });
+    await alert.present();
+    this.bugPrompted = true;
+  }
+
   async bugPrompt() {
-    const alert = await this.alertController.create({
-      header: 'Hey there!',
-      subHeader: 'Looks like you have encountered a bug that we cannot fix yet.',
-      message: 'The framework this app is based on have this glich that your courses would not show up the first time. We are actively collaborating with the framework team to fix it. By now your courses should be there waiting for you!',
+    let alert = await this.alertController.create({
+      header: 'We are sorry about this!',
+      subHeader: 'Looks like you\'ve encountered a bug we cannot fix yet.',
+      message: 'We have discovered this glich in the framework we are using that may result in your courses not showing up the first time you log in. We are actively collaborating with the framework team to fix it. By now your courses should be there waiting for you!',
       cssClass: 'myNormalPrompt',
       buttons: [
         {
@@ -92,14 +115,12 @@ export class AppComponent {
       ]
     });
     await alert.present();
-    this.bug_prompted = true;
   }
-
 
   logout() {
     this.bService.logout(1);
 
   }
 
-  
+
 }
