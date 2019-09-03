@@ -31,7 +31,16 @@ export class OrganizationService {
   }
 
   /**
-   * Called when user enters Grading page from List page or refreshes the Grading page
+   * Called when user enters Grading page from List page or refreshes the Grading page.
+   * Should only be called after the UserContext is created.
+   * We need the info of current gradeItem because user's grades does not contain gradeItemIdand when the mark is dropped by setting the gradeItem to disregard the lowest score, 
+   * that score is counted as out of 0. So we need to grab the pointsNumerator from the GradeItem.
+   * Users are updated by:
+   * 1. Requesting the info of the current GradeItem, stores the response to itemJsonResponse; Requesting the usergrades, store them in jsonResponse(Nameing could be done better)
+   * 2. Parse them they way described above, the store them in gradingUsers.
+   * 3. gradingUsersFilteredSubject = gradingUsers because the list that's actually displayed on gradingPage is gradingUsersFilteredSubject.
+   * 4. call gradingUsersFilteredSubject.next to notify gradingPage to update their copy.
+   * 
    * @param courseID courseID
    * @param gradeItemID grade item ID
    */
@@ -92,7 +101,15 @@ export class OrganizationService {
   }
 
   /**
-   * Called when user enters the List page
+   * updates the listPage with catagorization.
+   * Called when user enters the List page.
+   * list is uodated by:
+   * 1. requesting info from server
+   * 2. catagorize the returened items and store them in gradeItemsMenuItems
+   * 3. call gradeItemsMenuSubject.next to notify listPage to update.
+   * the final gradeItemsMenuItems contains dividers to devide different types of gradeItems (Labs/Asgns/Others). 
+   * Dividers have the property gradeItemID set to '000000' and Name of theuir respective catagories.
+   * 
    * @param courseID course ID
    */
   async updateGradeItems(courseID: number) {
@@ -231,7 +248,7 @@ export class OrganizationService {
       return 0;
     });
 
-    // merge all the arrays into gradeItemsMenueItems
+    // merge all the arrays into gradeItemsMenueItems in order
     Array.prototype.push.apply(this.gradeItemsMenuItems, this.labItems);
     Array.prototype.push.apply(this.gradeItemsMenuItems, this.assignmentItems);
     Array.prototype.push.apply(this.gradeItemsMenuItems, this.otherItems);
@@ -284,9 +301,10 @@ interface GradeItemUserValues {
                   Text: string,
                   Html: string
               },
-              PrivateComments: {}
+              PrivateComments: {
                   Text: string,
                   Html: string
+              }
               }
           }];
     Next;

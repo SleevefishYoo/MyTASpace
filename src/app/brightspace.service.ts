@@ -83,7 +83,10 @@ export class BrightspaceService implements CanActivate {
     });
   }
 
-
+/**
+ * could only be called when UserContext is created.
+ * update the side menu by requesting myenrollments to the logged in LMS instance, store the parsed response in sideMenuItems then call sideMenuSubject.next to notify appComponent.
+ */
   async updateSideMenu() {
     let jsonResponse = '';
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
@@ -224,6 +227,9 @@ export class BrightspaceService implements CanActivate {
     this.userIDSubject.next('New UserID');
   }
 
+  /**
+   * called by Get Started button on welcomeSlidePage of DEMO app to not have to go through login page.
+   */
   setTestIdKey() {
     this.setUserID(PARAMS.Session.userID);
     this.setUserKey(PARAMS.Session.userKey);
@@ -333,6 +339,10 @@ export class BrightspaceService implements CanActivate {
 
   }
 
+  /**
+   * Should only be called by validateSession. Using the response to update the user's name on main page and side menu.
+   * @param jsonResponse response of whoami from LMS instance.
+   */
   public updateNameOnPages(jsonResponse: string) {
     this.userFirstName = JSON.parse(jsonResponse).FirstName;
     this.userFirstNameSubject.next('new user Name');

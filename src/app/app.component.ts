@@ -88,7 +88,6 @@ export class AppComponent {
       buttons: [
         {
           text: 'Gotcha!',
-          role: 'cancel',
         },
         {
           text: 'But I am an IA/TA/Instructor',
@@ -105,7 +104,7 @@ export class AppComponent {
   async bugPrompt() {
     let alert = await this.alertController.create({
       header: 'We are sorry about this!',
-      subHeader: 'Looks like you\'ve encountered a bug we cannot fix yet.',
+      subHeader: 'Looks like you\'ve encountered a <Strong>bug</Strong> we cannot fix yet.',
       message: 'We have discovered this glich in the framework we are using that may result in your courses not showing up the first time you log in. We are actively collaborating with the framework team to fix it. By now your courses should be there waiting for you!',
       cssClass: 'myNormalPrompt',
       buttons: [
@@ -115,6 +114,7 @@ export class AppComponent {
       ]
     });
     await alert.present();
+    this.bugPrompted = true;
   }
 
   logout() {
