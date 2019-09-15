@@ -14,5 +14,5 @@ jobs:
         sudo npm install -g ionic
         sudo npm install -g cordova
         npm i
-        ionic cordova platform add android
-        ionic cordova build android
+        sudo ionic cordova platform add android
+        sudo ionic cordova build android
