@@ -1,23 +1,25 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as PARAMS from './cred.json';
-import {Storage} from '@ionic/storage';
-import {Subject} from 'rxjs/Subject';
-import {ApplicationContext, UserContext, Util} from './Module/valence/lib/valence';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {CanActivate, ActivatedRouteSnapshot} from '@angular/router';
-import {NavController} from '@ionic/angular';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {ToastService} from './toast.service.js';
-import {HTTPResponse, HTTP} from '@ionic-native/http/ngx';
-import {Keyboard} from '@ionic-native/keyboard/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
+import { Storage } from '@ionic/storage';
+import { Subject } from 'rxjs/Subject';
+import { ApplicationContext, UserContext, Util } from './Module/valence/lib/valence';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { ToastService } from './toast.service.js';
+import { HTTPResponse, HTTP } from '@ionic-native/http/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BrightspaceService implements CanActivate {
 
+
+  private isDebugMode = false;
   private appID = PARAMS.Brightspace.appID;
   private appKey = PARAMS.Brightspace.appKey;
   private userID = '';
@@ -46,14 +48,14 @@ export class BrightspaceService implements CanActivate {
    *    Functions please.
    */
   constructor(private storage: Storage,
-              private iab: InAppBrowser,
-              private http: HttpClient,
-              private nhttp: HTTP,
-              private navCtrl: NavController,
-              private toastService: ToastService,
-              private splashScreen: SplashScreen,
-              private keyboard: Keyboard,
-              private statusBar: StatusBar) {
+    private iab: InAppBrowser,
+    private http: HttpClient,
+    private nhttp: HTTP,
+    private navCtrl: NavController,
+    private toastService: ToastService,
+    private splashScreen: SplashScreen,
+    private keyboard: Keyboard,
+    private statusBar: StatusBar) {
     this.appContext = new ApplicationContext(this.appID, this.appKey);
 
 
@@ -83,14 +85,14 @@ export class BrightspaceService implements CanActivate {
     });
   }
 
-/**
- * could only be called when UserContext is created.
- * update the side menu by requesting myenrollments to the logged in LMS instance, store the parsed response in sideMenuItems then call sideMenuSubject.next to notify appComponent.
- */
+  /**
+   * could only be called when UserContext is created.
+   * update the side menu by requesting myenrollments to the logged in LMS instance, store the parsed response in sideMenuItems then call sideMenuSubject.next to notify appComponent.
+   */
   async updateSideMenu() {
     let jsonResponse = '';
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
-    await this.nhttp.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
+    await this.nhttp.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
       jsonResponse = data.data;
       console.log(data.data);
     }, (err: HTTPResponse) => {
@@ -180,27 +182,35 @@ export class BrightspaceService implements CanActivate {
    * Should only be called on welcome-slide.
    */
   login() {
-    const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
-      zoom: 'no',
-      clearsessioncache: 'yes',
-      toolbartranslucent: 'yes',
-      closebuttoncaption: 'Cancel',
-      toolbarcolor: '#330572',
-      navigationbuttoncolor: '#ffffff'
-    });
-    browser.on('loadstart').subscribe(
-      data => {
-        const url = data.url;
-        if (url.indexOf('&x_c=') !== -1) {
-          const params = ((url).split('?')[1]).split('&');
-          this.setUserID(params[0].split('=')[1]);
-          this.setUserKey(params[1].split('=')[1]);
-          this.setSessionSkew(Util.calculateSkew(url));
-          this.redirectedURL = url;
-          browser.close();
-          this.createUserContext(true);
-        }
+    if (this.isDebugMode) {
+      const params = (PARAMS.Session.CallBackURLWithParams.split('?')[1]).split('&');
+      this.setUserID(params[0].split('=')[1]);
+      this.setUserKey(params[1].split('=')[1]);
+      this.setSessionSkew(Util.calculateSkew(PARAMS.Session.CallBackURLWithParams));
+      this.createUserContext(true);
+    } else {
+      const browser = this.iab.create('https://' + this.generateAuthURL(), '_blank', {
+        zoom: 'no',
+        clearsessioncache: 'yes',
+        toolbartranslucent: 'yes',
+        closebuttoncaption: 'Cancel',
+        toolbarcolor: '#330572',
+        navigationbuttoncolor: '#ffffff'
       });
+      browser.on('loadstart').subscribe(
+        data => {
+          const url = data.url;
+          if (url.indexOf('&x_c=') !== -1) {
+            const params = (PARAMS.Session.CallBackURLWithParams.split('?')[1]).split('&');
+            this.setUserID(params[0].split('=')[1]);
+            this.setUserKey(params[1].split('=')[1]);
+            this.setSessionSkew(Util.calculateSkew(url));
+            this.redirectedURL = url;
+            browser.close();
+            this.createUserContext(true);
+          }
+        });
+    }
   }
 
   /**
@@ -276,9 +286,23 @@ export class BrightspaceService implements CanActivate {
    * @param userLogin should pass true when it is a user initiated userContext creation, so There will be a pop up appear.
    */
   public async validateSession(userLogin = false) {
-    const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
-    console.log('Testing if current userContext is Valid: Getting response from:' + url);
-    await this.http.get('https://' + url).subscribe((response) => {
+    if (this.isDebugMode) {
+      this.authenticated = true;
+      this.navCtrl.navigateRoot('/home');
+      this.updateNameOnPages('debuggy');
+      this.updateSideMenu();
+      this.statusBar.show();
+      if (userLogin) {
+        this.toastService.showNormalToast('You are logged in.');
+      }
+      this.keyboard.show();
+      this.keyboard.hide();
+      this.splashScreen.hide();
+
+    } else {
+      const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.0/users/whoami', 'get');
+      console.log('Testing if current userContext is Valid: Getting response from:' + url);
+      await this.http.get('https://' + url).subscribe((response) => {
         console.log('Session Valid');
         this.authenticated = true;
         this.navCtrl.navigateRoot('/home');
@@ -292,18 +316,19 @@ export class BrightspaceService implements CanActivate {
         this.keyboard.hide();
         this.splashScreen.hide();
       },
-      (error: HttpErrorResponse) => {
-        if (error.status === 403) {
-          this.authenticated = false;
-          this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
-          this.logout(0);
-        } else {
-          this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
-          this.authenticated = true;
-          this.navCtrl.navigateRoot('/home');
-          this.statusBar.show();
-        }
-      });
+        (error: HttpErrorResponse) => {
+          if (error.status === 403) {
+            this.authenticated = false;
+            this.toastService.showWarningToast('Session info Expired. Please Sign in again.');
+            this.logout(0);
+          } else {
+            this.toastService.showWarningToast('Cannot reach MyLS server. Please check your connection or MyLS status.');
+            this.authenticated = true;
+            this.navCtrl.navigateRoot('/home');
+            this.statusBar.show();
+          }
+        });
+    }
   }
 
 
@@ -344,7 +369,11 @@ export class BrightspaceService implements CanActivate {
    * @param jsonResponse response of whoami from LMS instance.
    */
   public updateNameOnPages(jsonResponse: string) {
-    this.userFirstName = JSON.parse(jsonResponse).FirstName;
+    if (this.isDebugMode) {
+      this.userFirstName = 'Debugger';
+    } else {
+      this.userFirstName = JSON.parse(jsonResponse).FirstName;
+    }
     this.userFirstNameSubject.next('new user Name');
   }
 }
