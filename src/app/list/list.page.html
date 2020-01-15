@@ -26,7 +26,7 @@
     </ion-item-group>
 
     <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
-      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
+      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed+'/'+item.Name">
       <ion-item
         *ngIf="(item.Name.indexOf('L') == 0 || item.Name.toLowerCase().includes(lab)) && item.gradeItemID != '000000'">
         <ion-icon name="null"></ion-icon>
@@ -43,7 +43,7 @@
     </ion-item-group>
 
     <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
-      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
+      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed+'/'+item.Name">
       <ion-item
         *ngIf="(item.Name.indexOf('A') == 0 || item.Name.toLowerCase().includes('assignment') )&& item.gradeItemID != '000000'">
         <ion-icon name="null"></ion-icon>
@@ -61,7 +61,7 @@
     </ion-item-group>
 
     <ion-item-group *ngFor="let item of gradeItemList" [routerDirection]="'forward'"
-      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed">
+      [routerLink]="'/grading/'+courseID+'/'+item.gradeItemID+'/'+item.maxGrade+'/'+item.allowExceed+'/'+item.Name">
       <ion-item
         *ngIf="item.Name.indexOf('A') != 0 && item.Name.indexOf('L') != 0 && !item.Name.toLowerCase().includes('assignment') && !item.Name.toLowerCase().includes('lab') && item.gradeItemID != '000000'">
         <ion-icon name="null"></ion-icon>

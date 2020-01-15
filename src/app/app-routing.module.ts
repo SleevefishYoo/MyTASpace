@@ -30,7 +30,7 @@ const routes: Routes = [
     canActivate: [LoginGuardService]
   },
   {
-    path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed',
+    path: 'grading/:courseID/:gradeItemID/:maxGrade/:allowExceed/:Name',
     loadChildren: './grading/grading.module#GradingPageModule',
     canActivate: [BrightspaceService]
   },

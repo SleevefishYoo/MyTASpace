@@ -25,8 +25,8 @@ export class OrganizationService {
   public gradeItems = [];
 
   constructor(private bService: BrightspaceService,
-              private toastService: ToastService,
-              private http: HTTP) {
+    private toastService: ToastService,
+    private http: HTTP) {
     this.http.setDataSerializer('json');
   }
 
@@ -50,49 +50,51 @@ export class OrganizationService {
     let itemJsonResponse = '';
 
     const itemUrl = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + courseID + '/grades/' + gradeItemID, 'get');
-    const url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + courseID + '/grades/' + gradeItemID + '/values/?sort=lastname&pageSize=200', 'get');
-
-    await this.http.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
-      jsonResponse = data.data;
-    }, (err: HTTPResponse) => {
-      if (err.status === 404) {
-        this.toastService.showWarningToast('Selected Grade Item cannot be found on the server.\nContact Us if you think this is wrong.');
-      } else if (err.status === 403) {
-        this.toastService.showWarningToast('You have no permission to see grade values of this item.\nContact Us if you think this is wrong.');
-        this.bService.validateSession();
-      } else if (err.status === -6) {
-        this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
-      } else {
-        this.toastService.showWarningToast(err.status + ': ' + err.data);
-      }
-    });
-
-    await this.http.get('https://' + itemUrl, {}, {'Content-Type': 'application/json'}).then(data => {
-      itemJsonResponse = data.data;
-    }, (err: HTTPResponse) => {
-      if (err.status === 403) {
-        this.bService.validateSession();
-      } else if (err.status === -6) {
-      } else {
-        this.toastService.showWarningToast(err.status + ': ' + err.data);
-      }
-    });
-
-    if (jsonResponse === '' || itemJsonResponse === '') { return; }
-    const userGrades: GradeItemUserValues = JSON.parse(jsonResponse);
-    const gradeItem = JSON.parse(itemJsonResponse);
-    for (const userGrade of userGrades.Objects) {
-      let currentGrade = 0;
-      if (JSON.stringify(userGrade.GradeValue) !== 'null') {currentGrade = userGrade.GradeValue.PointsNumerator; }
-      this.gradingUsers.push({
-        Name: userGrade.User.DisplayName,
-        WLUID: userGrade.User.OrgDefinedId,
-        Identifier: userGrade.User.Identifier,
-        WLUEmail: userGrade.User.EmailAddress,
-        gradeItemId: gradeItemID,
-        gradeOutOf: gradeItem.MaxPoints,
-        currGrade: String(currentGrade)
+    let url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + courseID + '/grades/' + gradeItemID + '/values/?sort=lastname&pageSize=200', 'get');
+    while (url != null) {
+      await this.http.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
+        jsonResponse = data.data;
+      }, (err: HTTPResponse) => {
+        if (err.status === 404) {
+          this.toastService.showWarningToast('Selected Grade Item cannot be found on the server.\nContact Us if you think this is wrong.');
+        } else if (err.status === 403) {
+          this.toastService.showWarningToast('You have no permission to see grade values of this item.\nContact Us if you think this is wrong.');
+          this.bService.validateSession();
+        } else if (err.status === -6) {
+          this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
+        } else {
+          this.toastService.showWarningToast(err.status + ': ' + err.data);
+        }
       });
+
+      await this.http.get('https://' + itemUrl, {}, { 'Content-Type': 'application/json' }).then(data => {
+        itemJsonResponse = data.data;
+      }, (err: HTTPResponse) => {
+        if (err.status === 403) {
+          this.bService.validateSession();
+        } else if (err.status === -6) {
+        } else {
+          this.toastService.showWarningToast(err.status + ': ' + err.data);
+        }
+      });
+
+      if (jsonResponse === '' || itemJsonResponse === '') { return; }
+      const userGrades: GradeItemUserValues = JSON.parse(jsonResponse);
+      const gradeItem = JSON.parse(itemJsonResponse);
+      for (const userGrade of userGrades.Objects) {
+        let currentGrade = 0;
+        if (JSON.stringify(userGrade.GradeValue) !== 'null') { currentGrade = userGrade.GradeValue.PointsNumerator; }
+        this.gradingUsers.push({
+          Name: userGrade.User.DisplayName,
+          WLUID: userGrade.User.OrgDefinedId,
+          Identifier: userGrade.User.Identifier,
+          WLUEmail: userGrade.User.EmailAddress,
+          gradeItemId: gradeItemID,
+          gradeOutOf: gradeItem.MaxPoints,
+          currGrade: String(currentGrade)
+        });
+      }
+      url = userGrades.Next != null ? this.bService.userContext.createAuthenticatedUrl(userGrades.Next, 'get') : null;
     }
     this.gradingUsersFiltered = this.gradingUsers;
     console.log('Grading page updated: ' + this.gradingUsers.length);
@@ -116,14 +118,14 @@ export class OrganizationService {
     this.gradeItems = [];
     let jsonResponse = '';
     const url = this.bService.userContext.createAuthenticatedUrl('/d2l/api/le/1.35/' + courseID + '/grades/', 'get');
-    await this.http.get('https://' + url, {}, {'Content-Type': 'application/json'}).then(data => {
+    await this.http.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
       jsonResponse = data.data;
     }, (err: HTTPResponse) => {
       if (err.status === 404) {
         this.toastService.showWarningToast('Cannot find this course on the server.\nContact Us if you think this is wrong.');
       } else if (err.status === 403) {
         this.toastService.showWarningToast('You have no permission to list grade items of this course.\n' +
-                                            'Contact Us if you think this is wrong.');
+          'Contact Us if you think this is wrong.');
         this.bService.validateSession();
       } else if (err.status === -6) {
         this.toastService.showWarningToast('Cannot reach MyLS server. Please check your internet connection or MyLS status.');
@@ -278,34 +280,34 @@ export class OrganizationService {
   }
 }
 interface GradeItemUserValues {
-    Objects: [{
-            User: {
-                Identifier: string,
-                DisplayName: string,
-                EmailAddress: string,
-                OrgDefinedId: string,
-                ProfileBadgeUrl: string,
-                ProfileIdentifier: string
-            },
-            GradeValue: {
-              PointsNumerator: number,
-              PointsDenominator: number,
-              WeightedNumerator: number,
-              WeightedDenominator: number,
-              GradeObjectIdentifier: string,
-              GradeObjectName: string,
-              GradeObjectType: number,
-              GradeObjectTypeName: string,
-              DisplayedGrade: string,
-              Comments: {
-                  Text: string,
-                  Html: string
-              },
-              PrivateComments: {
-                  Text: string,
-                  Html: string
-              }
-              }
-          }];
-    Next;
-  }
+  Objects: [{
+    User: {
+      Identifier: string,
+      DisplayName: string,
+      EmailAddress: string,
+      OrgDefinedId: string,
+      ProfileBadgeUrl: string,
+      ProfileIdentifier: string
+    },
+    GradeValue: {
+      PointsNumerator: number,
+      PointsDenominator: number,
+      WeightedNumerator: number,
+      WeightedDenominator: number,
+      GradeObjectIdentifier: string,
+      GradeObjectName: string,
+      GradeObjectType: number,
+      GradeObjectTypeName: string,
+      DisplayedGrade: string,
+      Comments: {
+        Text: string,
+        Html: string
+      },
+      PrivateComments: {
+        Text: string,
+        Html: string
+      }
+    }
+  }];
+  Next;
+}

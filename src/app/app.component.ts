@@ -67,12 +67,6 @@ export class AppComponent {
     }
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleBlackTranslucent();
-      if (cordova.platformId === 'android') {
-        // this.statusBar.styleBlackOpaque()
-      }
-      // this.statusBar.backgroundColorByHexString('#33000000');
-      // this.splashScreen.hide();
       this.statusBar.overlaysWebView(false);
     });
 

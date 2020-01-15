@@ -94,7 +94,7 @@ export class BrightspaceService implements CanActivate {
     const url = this.userContext.createAuthenticatedUrl('/d2l/api/lp/1.10/enrollments/myenrollments/', 'get');
     await this.nhttp.get('https://' + url, {}, { 'Content-Type': 'application/json' }).then(data => {
       jsonResponse = data.data;
-      console.log(data.data);
+      // console.log(data.data);
     }, (err: HTTPResponse) => {
       if (err.status === 404) {
         this.toastService.showWarningToast('Your enrollments cannot be found on the server.\nContact Us if you think this is wrong.');
@@ -201,7 +201,7 @@ export class BrightspaceService implements CanActivate {
         data => {
           const url = data.url;
           if (url.indexOf('&x_c=') !== -1) {
-            const params = (PARAMS.Session.CallBackURLWithParams.split('?')[1]).split('&');
+            const params = (url.split('?')[1]).split('&');
             this.setUserID(params[0].split('=')[1]);
             this.setUserKey(params[1].split('=')[1]);
             this.setSessionSkew(Util.calculateSkew(url));
